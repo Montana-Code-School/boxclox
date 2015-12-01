@@ -1,0 +1,2 @@
+!function(n){function r(o){if(t[o])return t[o].exports;var e=t[o]={exports:{},id:o,loaded:!1};return n[o].call(e.exports,e,e.exports,r),e.loaded=!0,e.exports}var t={};return r.m=n,r.c=t,r.p="/static/",r(0)}([function(n,r,t){!function(){throw new Error('Cannot find module "./client/Index"')}()}]);
+//# sourceMappingURL=main.js.map
