@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('./views/error.ejs', { title: 'BoxClox - A roller derby penalty timer app' });
+	res.render('index', { title: 'BoxClox - A roller derby penalty box clocking app' });
 });
 
 router.get('/timer', function(req, res, next){

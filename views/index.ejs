@@ -1,12 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <% include ./head %>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <script type="text/javascript" src="bundle.js" charset="utf-8"></script>
+  <div>
+  	<div class="full-photo" style="background-image: url('./images/header.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div align="center">
+                        <img class="img-responsive" src="./images/logo_wht.png"/>
+                        <h2> a roller derby penalty box clocking app. </h2>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    	<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+    <div class="middle-section"><p>  BoxClox is a minimalistic, easy-to-use tool for roller derby penalty box timing. BoxClox follows the current (8th revision) WFTDA ruleset for penalty timing, but allows one person to do the job of three, with ease.</p>
+    <p>Though the <a href="https://wftda.com/rules/20141201">WFTDA rules</a> for sanctioned games still require at least two NSO’s in the penalty box, BoxClox is your go-to tool for penalty timing in scrimmages and practices. </p>
+    <p>While derby players’ first love is derby, their second love is the team of NSO’s that make derby bouts and scrimmages happen! </p></div>
+    </div>
+    </div>
+    </div>
+      	<div class="full-photo" style="background-image: url('./images/ref.jpg')" align="center">
+      	<button class="ghost-button-semi-transparent"> 
+      	 How to CloxBox</button>
+      	<button class="ghost-button-semi-transparent"> Get Cloxing </button>
+      	<button class="ghost-button-semi-transparent"> Meet the Team </button>
+    </div>
+        <script type="text/javascript" src="../static/main.js" charset="utf-8"></script>
+<% include ./footer %>
   </body>
 </html>
