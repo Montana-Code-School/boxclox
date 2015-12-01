@@ -5,7 +5,7 @@ module.exports = {
   devtool: 'eval',
   entry: {
     main: ['webpack-hot-middleware/client',
-    './client/Index']
+    './client/clock']
   },
     output: {
     path: path.join(__dirname, 'static'),
@@ -21,8 +21,13 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.js$/,
-      loaders: ['babel'],
-      include: path.join(__dirname, 'client')
+      loader: 'babel',
+      exclude: /node_modules/,
+      include: path.join(__dirname, 'client'),
+      query: {
+        cacheDirectory: true,
+        presets: ['es2015', 'react']
+      }
     }]
   }
 };
