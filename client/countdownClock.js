@@ -12,7 +12,8 @@
 	    size: React.PropTypes.number,
 	    color: React.PropTypes.string,
 	    alpha: React.PropTypes.number,
-	    onComplete: React.PropTypes.func
+	    onComplete: React.PropTypes.func,
+	    onClick: React.PropTypes.func
 	  },
 
 	  getDefaultProps: function() {
@@ -34,7 +35,7 @@
 	    this.setScale();
 	    this.setupCanvas();
 	    this.drawTimer();
-	    return this.startTimer();
+	    return this.setupCanvas();
 	  },
 	  updateCanvas: function() {
 	    this.clearTimer();
@@ -103,9 +104,8 @@
 	    decimals = (ref = this.seconds <= 9.9) != null ? ref : {
 	      1: 0
 	    };
-	    warn = (ref = this.seconds <= 10 && this.seconds >= 0) ? this.context.fillStyle = "red" :this.context.fillStyle = this.props.color;;
+	    warn = (ref = this.seconds <= 10 && this.seconds >= 0) ? this.context.fillStyle = "red" : this.context.fillStyle = this.props.color;
 	    this.context.globalAlpha = this.props.alpha;
-	    // this.context.fillStyle = this.props.color;
 	    this.context.fillText(this.seconds.toFixed(decimals), this.radius, this.radius);
 	    this.context.beginPath();
 	    this.context.arc(this.radius, this.radius, this.radius, Math.PI * 1.5, Math.PI * percent, false);
