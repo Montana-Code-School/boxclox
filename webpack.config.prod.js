@@ -5,7 +5,7 @@ module.exports = {
   devtool: 'source-map',
   entry: { 
     main: [
-    './client/clockPage']
+    './client/clock']
   },
     output: {
     path: path.join(__dirname, 'static'),

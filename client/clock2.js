@@ -9,7 +9,8 @@ var Clock = React.createClass({
     },
 
     getTime: function() {
-        return moment.utc(this.props.time).format('mm.ss');
+        var now = new Date(this.props.time).toUTCString();
+        return now.slice(23,-4);
     },
 
     getPercent: function() {
@@ -20,9 +21,9 @@ var Clock = React.createClass({
         
         return (
             <div className="clock">
-                {this.getTime()}
+               {this.getTime()}
                 <div className="circular">
-                    <CircularProgress mode="determinate" value={this.getPercent()} size={5} />
+                    <CircularProgress mode="determinate" color="black" value={this.getPercent()} size={2} />
                 </div>
             </div>
         );

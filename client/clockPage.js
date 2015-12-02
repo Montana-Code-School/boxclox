@@ -11,9 +11,9 @@ var ClockPage = React.createClass({
 
     getMaxTime: function(isBreak) {
         if (isBreak) {
-            return 5 * 60 * 1000;
+            return 30 * 1000;
         } else {
-            return 25 * 60 * 1000;
+            return 30 * 1000;
         };
     },
 

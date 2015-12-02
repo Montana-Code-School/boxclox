@@ -10,6 +10,7 @@ var App = React.createClass({
   getState: function() {
     return {
       seconds: 12,
+      maxseconds: 12,
       color: '#fff111'
     };
   },
@@ -19,7 +20,7 @@ var App = React.createClass({
   render: function() {
     return (
         <div>
-        <button id="clock"><ReactCountdownClock seconds={this.state.seconds} color={this.state.color} alpha={0.9} onComplete={this.handleOnComplete}/></button>
+        <ReactCountdownClock seconds={this.state.seconds} color={this.state.color} alpha={0.9} onComplete={this.handleOnComplete}/>
         </div>
     );
   }
