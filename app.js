@@ -14,7 +14,7 @@ var app = express();
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-//Webpack config to enable hot reloading
+// Webpack config to enable hot reloading
 if (process.env.NODE_ENV === 'production') {
   console.log('Running in production mode');
 
@@ -54,7 +54,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -63,7 +63,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -95,6 +94,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
 
 module.exports = app;
