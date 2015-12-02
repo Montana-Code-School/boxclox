@@ -6,6 +6,12 @@ body {
 a {
   color: #EF569F;
 }
+a:active {
+  color: rgba(167, 169, 172, 0.6);
+}
+a:hover {
+  color: rgba(167, 169, 172, 0.6);
+}
 
 h2 {
 	font-family: "Anton", sans-serif;
@@ -15,12 +21,24 @@ h2 {
 	margin-top: 50px;
 	margin-bottom: 50px;
 }
+
+.middle-section h2 {
+  color: #EF569F;
+  font-size: 1.5em;
+  text-align: center;
+}
+
 img.boxshadow {
 	height:auto;
 	width: 500px;
 	box-shadow:  10px 10px 5px #888888;
 }
-
+.img-circle {
+  border-radius: 50%;
+  float:center;
+  margin: 0px 40px 0px 20px;
+  padding: 0px;
+}
 .ghost-button-semi-transparent {
   display: inline-block;
   width: 380px;
@@ -28,7 +46,7 @@ img.boxshadow {
   padding: 30px 20px 30px 20px;
   color: #EF569F;
   border: 2px solid #EF569F;
-  margin: 150px 10px;
+  margin: 10px;
   font-family: "Anton", sans-serif;
   font-weight: 650px;
   font-size: 30px;
@@ -59,14 +77,16 @@ img.boxshadow {
 	background-position: top center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	color: white;
 	cursor: default;
 	padding: 160px 0 90px;
-	text-align: center;
 	width: 100%;
 	float: left;
 }
 
+.full-photo h2 {
+  color: white;
+  text-align: center;
+}
 .intro-header {
   background-color: #808080;
   background: no-repeat center center;
