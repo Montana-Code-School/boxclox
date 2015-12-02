@@ -16,6 +16,7 @@ a:hover {
 h2 {
 	font-family: "Anton", sans-serif;
 	font-size: 2em;
+  padding: 10px;
 }
 .middle-section {
 	margin-top: 50px;
@@ -46,7 +47,7 @@ img.boxshadow {
   padding: 30px 20px 30px 20px;
   color: #EF569F;
   border: 2px solid #EF569F;
-  margin: 10px;
+  margin: 200px 10px;
   font-family: "Anton", sans-serif;
   font-weight: 650px;
   font-size: 30px;
@@ -73,10 +74,10 @@ img.boxshadow {
 } 
 .full-photo {	
 	background-attachment:fixed;
-	background-color: #645862;
+  background-color: rgba(240, 85, 160, 0.2);
 	background-position: top center;
-	background-repeat: no-repeat;
-	background-size: cover;
+/*	background-repeat: no-repeat;
+*/	background-size: cover;
 	cursor: default;
 	padding: 160px 0 90px;
 	width: 100%;
