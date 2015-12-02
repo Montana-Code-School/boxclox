@@ -1,4 +1,5 @@
-React = require('react');
+var React = require('react');
+var ReactDOM = require('react-dom');
 
 
 var App = React.createClass({
@@ -11,4 +12,4 @@ var App = React.createClass({
    }
 });
 
-React.render(<App/>, document.getElementById("timer-here"));
+ReactDOM.render(<App/>, document.getElementById("timer-here"));
