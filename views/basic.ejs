@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <% include ./head %>
+ <script>
+    var clicked = false;
+    var sec = 30;
+    function startClock() {
+      if (clicked === false) {
+        clock = setInterval("stopWatch()", 1000);
+        clicked = true;
+      }
+      else if (clicked === true) {
+      }
+    }
+    function stopWatch() {
+      sec--;
+      document.getElementById("timer").innerHTML = sec;
+    }
+    function stopClock() {
+    if (clicked) {
+      clearInterval(clock);
+      timer = null;
+    }
+  };
+ </script>
+
+ <script>
+    "use strict";
+    var timer = null;
+    var totalSeconds = 30;
+
+    function startButton() {
+      if (!timer) {
+        timer = setInterval(setTime, 1000);
+      }
+    };
+
+    function stopButton() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    };
+
+    function setTime() {
+      totalSeconds--;
+      document.getElementById("timer2").innerHTML = totalSeconds;
+    };
+ </script>
+
+</head>
+<body>
+  <h1>Basic Timer Page</h1>
+  <div class="container-fluid">
+
+    <div>
+      <input type="submit" id="start-clock" value="Start" name="submit" onClick="startClock();">
+      <div id="timer">30</div>
+      <input type="submit" id="stop-clock" value="Stop" name="submit" onClick="stopClock();">
+    </div>
+
+    <div>
+      <input type="submit"value="Start" name="submit" onClick="startButton();">
+      <div id="timer2">30</div>
+      <input type="submit"value="Stop" name="submit" onClick="stopButton();">
+    </div>
+
+  </div>
+  <% include ./footer %>
+</body>
+</html>
