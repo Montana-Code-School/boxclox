@@ -20,12 +20,9 @@ var Clock = React.createClass({
     render: function() {
         
         return (
-            <div className="clock">
-               {this.getTime()}
-                <div className="circular">
-                    <CircularProgress mode="determinate" color="black" value={this.getPercent()} size={2} />
-                </div>
-            </div>
+            
+              <p className="clock-text"> {this.getTime()}</p>
+            
         );
     }
 });
