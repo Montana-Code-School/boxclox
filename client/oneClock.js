@@ -5,9 +5,9 @@ var RaisedButton = require('material-ui').RaisedButton;
 var FloatingActionButton = require('material-ui').FloatingActionButton;
 var Colors = require('material-ui/lib/styles/colors');
 
-var Clock = require('./clock2');
+var Clock = require('./clockText');
 
-var ClockPage = React.createClass({
+var OneClock = React.createClass({
 
     getMaxTime: function(isBreak) {
         if (isBreak) {
@@ -113,12 +113,9 @@ var ClockPage = React.createClass({
     render: function() {
         return (
             <div>
-            <div className="clock-button"  style={{backgroundColor: "#EF569F"}}>
-            
-            <button className="button-float" onClick={this.handleStart}><Clock time={this.state.time} maxtime={this.state.maxtime} /></button> 
-            <button className="button-float" onClick={this.handleStart}><i className={this.getIconName()} style={{fontSize: '8em'}}></i></button> 
-            
-
+                <div className="clock-button"  style={{backgroundColor: "#EF569F"}}>
+                    <button className="button-float" onClick={this.handleStart}><Clock time={this.state.time} maxtime={this.state.maxtime} /></button> 
+                    <button className="button-float" onClick={this.handleStart}><i className={this.getIconName()} style={{fontSize: '8em'}}></i></button> 
                 </div>
                 <div className="floating">
                     <span className="item">
@@ -133,8 +130,4 @@ var ClockPage = React.createClass({
     }
 });
 
-ReactDOM.render(<ClockPage/>, document.getElementById('timer-one'));
-ReactDOM.render(<ClockPage/>, document.getElementById('timer-two'));
-ReactDOM.render(<ClockPage/>, document.getElementById('timer-three'));
-
-
+module.exports = OneClock;
