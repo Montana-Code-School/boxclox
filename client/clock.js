@@ -21,9 +21,12 @@ var App = React.createClass({
     return (
         <div>
         <ReactCountdownClock seconds={this.state.seconds} color={this.state.color} alpha={0.9} onComplete={this.handleOnComplete}/>
+        <ReactCountdownClock seconds={this.state.seconds} color={this.state.color} alpha={0.9} onComplete={this.handleOnComplete}/>
+
         </div>
     );
   }
 });
 
-ReactDOM.render(<App/>, document.getElementById('timer-here'));
+ReactDOM.render(<App/>, document.getElementById('timer-one'));
+ReactDOM.render(<App/>, document.getElementById('timer-two'));

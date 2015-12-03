@@ -132,4 +132,6 @@ var ClockPage = React.createClass({
     }
 });
 
-ReactDOM.render(<ClockPage/>, document.getElementById('timer-here'));
+ReactDOM.render(<ClockPage/>, document.getElementById('timer-one'));
+ReactDOM.render(<ClockPage/>, document.getElementById('timer-two'));
+
