@@ -29,4 +29,6 @@ var OneTeam = React.createClass({
 });
 
 
+ReactDOM.render(<OneTeam/>, document.getElementById('timer-one'));
+ReactDOM.render(<OneTeam/>, document.getElementById('timer-two'));
 module.exports = OneTeam;
