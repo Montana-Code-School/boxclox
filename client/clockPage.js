@@ -11,9 +11,9 @@ var ClockPage = React.createClass({
 
     getMaxTime: function(isBreak) {
         if (isBreak) {
-            return 5 * 60 * 1000;
+            return 30 * 1000;
         } else {
-            return 25 * 60 * 1000;
+            return 30 * 1000;
         };
     },
 
@@ -132,4 +132,6 @@ var ClockPage = React.createClass({
     }
 });
 
-ReactDOM.render(<ClockPage/>, document.getElementById('timer-here'));
+ReactDOM.render(<ClockPage/>, document.getElementById('timer-one'));
+ReactDOM.render(<ClockPage/>, document.getElementById('timer-two'));
+

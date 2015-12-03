@@ -9,13 +9,13 @@
 	  canvas: null,
 	  propTypes: {
 	    seconds: React.PropTypes.number,
+	    maxseconds: React.PropTypes.number,
 	    size: React.PropTypes.number,
 	    color: React.PropTypes.string,
 	    alpha: React.PropTypes.number,
 	    onComplete: React.PropTypes.func,
-	    onClick: React.PropTypes.func
+	    isPlaying: React.PropTypes.func
 	  },
-
 	  getDefaultProps: function() {
 	    return {
 	      size: 300,
@@ -31,11 +31,12 @@
 	    this.seconds = this.props.seconds;
 	    return this.setupTimer();
 	  },
+
 	  setupTimer: function() {
 	    this.setScale();
 	    this.setupCanvas();
 	    this.drawTimer();
-	    return this.setupCanvas();
+	    return this.startTimer();
 	  },
 	  updateCanvas: function() {
 	    this.clearTimer();
@@ -53,7 +54,6 @@
 	    this.context.textBaseline = 'middle';
 	    return this.context.font = "bold " + (this.radius / 2) + "px Arial";
 	  },
-
 	  startTimer: function() {
 	    var that = this;
 	    return setTimeout(function(that) {
@@ -61,6 +61,17 @@
 	        return that.tick();
 	      };
 	    }(that), 200);
+	  },
+	  handleStart: function() {
+	  	this.setState({
+	  		isPlaying: !this.state.isPlaying
+	  	});
+	  },
+	  handleReset: function() {
+	  	this.setState({
+	  		seconds: this.state.maxtime,
+	  		isPlaying: false
+	  	});
 	  },
 	  tick: function() {
 	  	var that = this;
@@ -84,7 +95,7 @@
 	  },
 	  handleComplete: function() {
 	    if (this.props.onComplete) {
-	      return this.props.onComplete();
+	      return this.props.drawTimer();
 	    }
 	  },
 	  clearTimer: function() {
