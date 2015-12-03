@@ -115,8 +115,11 @@ var ClockPage = React.createClass({
         return (
             <div>
             <div className="clock-button"  style={{backgroundColor: "#EF569F"}}>
-                                <button className="button-float" style={{backgroundColor: "rgba(0,0,0,0)"}}onClick={this.handleStart}><i className={this.getIconName()}></i></button> 
-    <Clock time={this.state.time} maxtime={this.state.maxtime} />
+            
+            <button className="button-float" onClick={this.handleStart}><Clock time={this.state.time} maxtime={this.state.maxtime} /></button> 
+            <button className="button-float" onClick={this.handleStart}><i className={this.getIconName()} style={{color: 'rgba(255,255,255, .2)', fontSize: '8em'}}></i></button> 
+            
+
                 </div>
                 <div className="floating">
                     <span className="item">

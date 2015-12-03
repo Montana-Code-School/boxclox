@@ -103,8 +103,9 @@ img.boxshadow {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  position: relative;
-  border-color: none;
+  position: absolute;
+  border-color: rgba(0,0,0,0);
+  background-color: rgba(0,0,0,0);
 }
 .clock-button p {
   font-size: 5em;
@@ -113,7 +114,6 @@ img.boxshadow {
   margin:auto;
   color: #FFF;
   position: relative;
-  top: -125px;
   text-shadow: 4px 2px 7px rgba(0,0,0, .2);
 }
 .circular-button {
