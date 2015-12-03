@@ -17,10 +17,10 @@ var OneTeam = React.createClass({
               <div className='clock-button'  style={{backgroundColor: 'red'}}>
                 <OneClock/>
               </div>
-              <div className='clock-button'  style={{backgroundColor: 'blue'}}>
+              <div className='clock-button'  style={{backgroundColor: 'red'}}>
               <OneClock/>
               </div>
-              <div className='clock-button'  style={{backgroundColor: 'green'}}>              
+              <div className='clock-button'  style={{backgroundColor: 'red'}}>              
               <OneClock/>
               </div>
             </div>
@@ -29,6 +29,6 @@ var OneTeam = React.createClass({
 });
 
 
-ReactDOM.render(<OneTeam/>, document.getElementById('timer-one'));
-ReactDOM.render(<OneTeam/>, document.getElementById('timer-two'));
+// ReactDOM.render(<OneTeam/>, document.getElementById('timer-one'));
+// ReactDOM.render(<OneTeam/>, document.getElementById('timer-two'));
 module.exports = OneTeam;

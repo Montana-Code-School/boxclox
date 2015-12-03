@@ -5,7 +5,7 @@ module.exports = {
   devtool: 'source-map',
   entry: { 
     main: [
-    './client/oneTeam']
+    './client/oneBout']
   },
     output: {
     path: path.join(__dirname, 'static'),
