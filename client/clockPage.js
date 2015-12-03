@@ -81,9 +81,9 @@ var ClockPage = React.createClass({
 
     getIconName: function() {
         if (this.state.isPlaying) {
-            return 'fa fa-pause';
+            return 'fa fa-5x fa-pause';
         } else {
-            return 'fa fa-play';
+            return 'fa fa-5x fa-play';
         }
     },
 
@@ -113,13 +113,12 @@ var ClockPage = React.createClass({
 
     render: function() {
         return (
-            <div className={this.getPageName()}>
-                <Clock time={this.state.time} maxtime={this.state.maxtime} />
-
+            <div>
+            <div className="clock-button"  style={{backgroundColor: "#EF569F"}}>
+                                <button className="button-float" style={{backgroundColor: "rgba(0,0,0,0)"}}onClick={this.handleStart}><i className={this.getIconName()}></i></button> 
+    <Clock time={this.state.time} maxtime={this.state.maxtime} />
+                </div>
                 <div className="floating">
-                    <span className="item">
-                        <FloatingActionButton iconClassName={this.getIconName()} iconStyle={{color: '#00bcd4'}} onClick={this.handleStart} />
-                    </span>
                     <span className="item">
                         <FloatingActionButton iconClassName="fa fa-refresh" iconStyle={{color: '#00bcd4'}} onClick={this.handleReset} />
                     </span>

@@ -72,12 +72,12 @@ img.boxshadow {
     margin: 0 auto;
     float: left;
 } 
+/*PARALLAX IMAGE STYLING*/
 .full-photo {	
 	background-attachment:fixed;
   background-color: rgba(240, 85, 160, 0.2);
 	background-position: top center;
-/*	background-repeat: no-repeat;
-*/	background-size: cover;
+  background-size: cover;
 	cursor: default;
 	padding: 160px 0 90px;
 	width: 100%;
@@ -88,6 +88,46 @@ img.boxshadow {
   color: white;
   text-align: center;
 }
+
+/*CLOCK STYLING*/
+
+.clock-button {
+  width: 200px;
+  height: 200px;
+  padding-top: auto;
+  padding-bottom: auto;
+  border-radius: 50%;
+  box-shadow: 4px 2px 15px rgba(0,0,0, .6);
+}
+.button-float {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: relative;
+  border-color: none;
+}
+.clock-button p {
+  font-size: 5em;
+  font-family: Lato;
+  text-align: center;
+  margin:auto;
+  color: #FFF;
+  position: relative;
+  top: -125px;
+  text-shadow: 4px 2px 7px rgba(0,0,0, .2);
+}
+.circular-button {
+  position: absolute!important;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+
+
+
+
 .intro-header {
   background-color: #808080;
   background: no-repeat center center;
