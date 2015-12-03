@@ -11,9 +11,9 @@ var ClockPage = React.createClass({
 
     getMaxTime: function(isBreak) {
         if (isBreak) {
-            return 30 * 1000;
+            return 30 * 10000;
         } else {
-            return 30 * 1000;
+            return 30 * 10000;
         };
     },
 
@@ -44,7 +44,7 @@ var ClockPage = React.createClass({
             } else {
                 _this.timeOver();
             }
-        }, 1000);
+        }, 100);
     },
 
     handleStart: function() {
@@ -117,7 +117,7 @@ var ClockPage = React.createClass({
             <div className="clock-button"  style={{backgroundColor: "#EF569F"}}>
             
             <button className="button-float" onClick={this.handleStart}><Clock time={this.state.time} maxtime={this.state.maxtime} /></button> 
-            <button className="button-float" onClick={this.handleStart}><i className={this.getIconName()} style={{color: 'rgba(255,255,255, .2)', fontSize: '8em'}}></i></button> 
+            <button className="button-float" onClick={this.handleStart}><i className={this.getIconName()} style={{fontSize: '8em'}}></i></button> 
             
 
                 </div>
@@ -136,4 +136,6 @@ var ClockPage = React.createClass({
 
 ReactDOM.render(<ClockPage/>, document.getElementById('timer-one'));
 ReactDOM.render(<ClockPage/>, document.getElementById('timer-two'));
+ReactDOM.render(<ClockPage/>, document.getElementById('timer-three'));
+
 
