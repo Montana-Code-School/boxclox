@@ -28,9 +28,8 @@ var ClockPage = React.createClass({
 
     timeOver: function() {
         this.setState({
-            isBreak: !this.state.isBreak, 
-            maxtime: this.getMaxTime(!this.state.isBreak),
-            time: this.getMaxTime(!this.state.isBreak),
+            time: this.state.maxtime,
+            isPlaying: false
         });
     },
 
