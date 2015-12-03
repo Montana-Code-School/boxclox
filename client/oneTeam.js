@@ -9,9 +9,15 @@ var OneTeam = React.createClass({
   render: function() {
         return (
             <div>
+            <div className="clock-button"  style={{backgroundColor: 'red'}}>
               <OneClock/>
-              <OneClock/>
-              <OneClock/>
+              </div>
+            <div className="clock-button"  style={{backgroundColor: 'blue'}}>
+            <OneClock/>
+            </div>
+            <div className="clock-button"  style={{backgroundColor: 'green'}}>              
+            <OneClock/>
+            </div>
             </div>
         );
     }

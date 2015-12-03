@@ -113,10 +113,8 @@ var OneClock = React.createClass({
     render: function() {
         return (
             <div>
-                <div className="clock-button"  style={{backgroundColor: "#EF569F"}}>
                     <button className="button-float" onClick={this.handleStart}><Clock time={this.state.time} maxtime={this.state.maxtime} /></button> 
                     <button className="button-float" onClick={this.handleStart}><i className={this.getIconName()} style={{fontSize: '8em'}}></i></button> 
-                </div>
                 <div className="floating">
                     <span className="item">
                         <FloatingActionButton iconClassName="fa fa-refresh" iconStyle={{color: '#00bcd4'}} onClick={this.handleReset} />
