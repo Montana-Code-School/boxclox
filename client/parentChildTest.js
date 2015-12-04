@@ -1,7 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
-var FloatingActionButton = require('material-ui').FloatingActionButton;
 
 var ClockMixin =  {
   getDefaultProps: function() {
@@ -33,90 +32,67 @@ var MountMixin = {
     },
 };
 var StateMixin = {
-    getMaxTime: function(isBreak) {
-        if (isBreak) {
-            return 30 * 10000;
-        } else {
-            return 30 * 10000;
-        };
-    },
+  getMaxTime: function(isBreak) {
+    return 30 * 10000;
+  },
 
-    getInitialState: function () {
-        return {
-            isPlaying: false,
-            isBreak: false,
-            time: this.getMaxTime(),
-            maxtime: this.getMaxTime(),
-        };
-    },
+  getInitialState: function () {
+    return {
+      isPlaying: false,
+      time: this.getMaxTime(),
+      maxtime: this.getMaxTime(),
+    };
+  },
 
-    timeOver: function() {
-        this.setState({
-            time: this.state.maxtime,
-            isPlaying: false
+  timeOver: function() {
+    this.setState({
+      time: this.state.maxtime,
+      isPlaying: false
+    });
+  },
+
+  startTimer: function() {
+    var _this = this;
+    return window.setInterval(function () {
+      if (_this.state.time > 0) {
+        _this.setState({
+            time: _this.state.time-1000
         });
-    },
+      } else {
+          _this.timeOver();
+      }
+    }, 100);
+  },
 
-    startTimer: function() {
-        var _this = this;
-        return window.setInterval(function () {
-            if (_this.state.time > 0) {
-                _this.setState({
-                    time: _this.state.time-1000
-                });
-            } else {
-                _this.timeOver();
-            }
-        }, 100);
-    },
+  handleStart: function() {
+    this.setState({
+      isPlaying: !this.state.isPlaying, 
+    });
+  },
 
-    handleStart: function() {
-        this.setState({
-            isPlaying: !this.state.isPlaying
-        });
-    },
+  handleReset: function() {
+    this.setState({
+        time: this.state.maxtime,
+        isPlaying: false
+    });
+  },
+  
+  handleAll: function() {
+    this.setState({
+      isPlaying: !this.state.isPlaying,
+      isRunning: !this.state.isRunning
 
-    handleReset: function() {
-        this.setState({
-            time: this.state.maxtime,
-            isPlaying: false
-        });
-    },
+    })
+  },
 
-
-
-    getIconName: function() {
-        if (this.state.isPlaying) {
-            return 'fa fa-pause';
-        } else {
-            return 'fa fa-play';
-        }
-    },
-
-    getPageName: function() {
-        if (this.state.isBreak) {
-            return 'full-page full-red';
-        } else {
-            return 'full-page full-blue';
-        }
-    },
-
-    getBreakName: function() {
-        if (this.state.isBreak) {
-            return 'fa fa-briefcase';
-        } else {
-            return 'fa fa-coffee';
-        }
-    },
-
-    handleBreak: function() {
-        this.setState({
-            isBreak: !this.state.isBreak, 
-            maxtime: this.getMaxTime(!this.state.isBreak),
-            time: this.getMaxTime(!this.state.isBreak),
-        });
-    },
-  };
+  getIconName: function() {
+    if (this.state.isPlaying) {
+      return 'fa fa-pause';
+    } else {
+      return 'fa fa-play';
+    }
+  },
+};
 
 var Clock = React.createClass({
 
@@ -150,29 +126,30 @@ var OneClock = React.createClass({
  
  mixins: [MountMixin, StateMixin],
 
-    render: function() {
-        return (
-            <div>
-            <button className="clock-float" onClick={this.handleStart}><Clock time={this.state.time} maxtime={this.state.maxtime} /></button> 
-            <button className="clock-float" onClick={this.handleStart}><i className={this.getIconName()} style={{fontSize: '6em'}}></i></button> 
-            <button className='reset' onClick={this.handleReset}>Reset </button>
-            </div>
-        );
-    }
+  render: function() {
+    return (
+        <div>
+        <button className="clock-float" onClick={this.handleStart}><Clock time={this.state.time} maxtime={this.state.maxtime} /></button> 
+        <button className="clock-float" onClick={this.handleStart}><i className={this.getIconName()} style={{fontSize: '6em'}}></i></button> 
+        <button className='reset' onClick={this.handleReset}>Reset </button>
+        </div>
+    );
+  }
 });
 
 var OneTeam = React.createClass({
-  mixins: [LinkedStateMixin, StateMixin],
+  mixins: [MountMixin, StateMixin],
+
   render: function() {
         return (
             <div>
               <div className="col-md-4 col-md-offset-2">
                 <h3> Home Team </h3>
             <div className='clock-button'  style={{backgroundColor: 'rgba(168,0,0, .8)'}}>
-            <OneClock/> 
+            <OneClock isRunning={this.state.isPlaying}/> 
             </div>                        
               <div className='clock-button'  style={{backgroundColor: 'rgba(168,0,0, .8)'}}>
-              <OneClock/>
+              <OneClock isRunning={this.state.isPlaying}/>
               </div>
               <div className='clock-button'  style={{backgroundColor: 'rgba(168,0,0, .8)'}}>              
               <OneClock/>
@@ -181,18 +158,18 @@ var OneTeam = React.createClass({
               <div className="col-md-4">
                 <h3> Visitors </h3>
               <div className='clock-button'  style={{backgroundColor: 'rgba(0, 0, 179, .8)'}}>
-                <OneClock/>
+                <OneClock isRunning={this.state.isPlaying}/>
             
               </div>
               <div className='clock-button'  style={{backgroundColor: 'rgba(0, 0, 179, .8)'}}>
-              <OneClock/>
+              <OneClock isRunning={this.state.isPlaying}/>
               </div>
               <div className='clock-button'  style={{backgroundColor: 'rgba(0, 0, 179, .8)'}}>              
-              <OneClock/>
+              <OneClock isRunning={this.state.isPlaying}/>
               </div>
               </div>
               <div className='col-md-8 col-md-offset-2 center'>
-              <button className='reset-all' onClick={this.handleStart}>Pause</button>
+              <button className='reset-all' onClick={this.handleAll}>Pause</button>
               </div>
             </div>
         );
