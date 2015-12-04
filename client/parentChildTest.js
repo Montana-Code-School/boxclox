@@ -87,9 +87,9 @@ var StateMixin = {
 
     getIconName: function() {
         if (this.state.isPlaying) {
-            return 'fa fa-5x fa-pause';
+            return 'fa fa-pause';
         } else {
-            return 'fa fa-5x fa-play';
+            return 'fa fa-play';
         }
     },
 
@@ -153,39 +153,59 @@ var OneClock = React.createClass({
     render: function() {
         return (
             <div>
-            <button className="button-float" onClick={this.handleStart}><Clock time={this.state.time} maxtime={this.state.maxtime} /></button> 
-            <button className="button-float" onClick={this.handleStart}><i className={this.getIconName()} style={{fontSize: '8em'}}></i></button> 
-            <span className="item">
-            <FloatingActionButton iconClassName="fa fa-refresh" iconStyle={{color: '#00bcd4'}} onClick={this.handleReset} />
-            </span>
-            <span className="item">
-            <FloatingActionButton iconClassName={this.getBreakName()} iconStyle={{color: '#00bcd4'}} onClick={this.handleBreak} />
-            </span>
+            <button className="clock-float" onClick={this.handleStart}><Clock time={this.state.time} maxtime={this.state.maxtime} /></button> 
+            <button className="clock-float" onClick={this.handleStart}><i className={this.getIconName()} style={{fontSize: '6em'}}></i></button> 
+            <button className='reset' onClick={this.handleReset}>Reset </button>
             </div>
         );
     }
 });
 
 var OneTeam = React.createClass({
-  mixins: [LinkedStateMixin],
+  mixins: [LinkedStateMixin, StateMixin],
   render: function() {
         return (
             <div>
-              <div className='clock-button'  style={{backgroundColor: 'red'}}>
+              <div className="col-md-4 col-md-offset-2">
+                <h3> Home Team </h3>
+            <div className='clock-button'  style={{backgroundColor: 'rgba(168,0,0, .8)'}}>
+            <OneClock/> 
+            </div>                        
+              <div className='clock-button'  style={{backgroundColor: 'rgba(168,0,0, .8)'}}>
+              <OneClock/>
+              </div>
+              <div className='clock-button'  style={{backgroundColor: 'rgba(168,0,0, .8)'}}>              
+              <OneClock/>
+              </div>
+              </div>
+              <div className="col-md-4">
+                <h3> Visitors </h3>
+              <div className='clock-button'  style={{backgroundColor: 'rgba(0, 0, 179, .8)'}}>
                 <OneClock/>
             
               </div>
-              <div className='clock-button'  style={{backgroundColor: 'red'}}>
+              <div className='clock-button'  style={{backgroundColor: 'rgba(0, 0, 179, .8)'}}>
               <OneClock/>
               </div>
-              <div className='clock-button'  style={{backgroundColor: 'red'}}>              
+              <div className='clock-button'  style={{backgroundColor: 'rgba(0, 0, 179, .8)'}}>              
               <OneClock/>
               </div>
-              <button onClick={this.linkState.handleStart}>Pause</button>
+              </div>
+              <div className='col-md-8 col-md-offset-2 center'>
+              <button className='reset-all' onClick={this.handleStart}>Pause</button>
+              </div>
             </div>
         );
     }
 });
 
 ReactDOM.render(<OneTeam/>, document.getElementById('test'));
+
+            // <span className="item">
+            // <FloatingActionButton iconClassName="fa fa-refresh" iconStyle={{color: '#00bcd4'}} onClick={this.handleReset} />
+            // </span>
+            // <span className="item">
+            // <FloatingActionButton iconClassName={this.getBreakName()} iconStyle={{color: '#00bcd4'}} onClick={this.handleBreak} />
+            // </span>
+
 

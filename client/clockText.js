@@ -28,7 +28,7 @@ var Clock = React.createClass({
     
     return (
       
-      <p className="clock-text"> {this.getTime()}</p>
+      <p className="clock-text">{this.getTime()}</p>
       );
   }
 });
