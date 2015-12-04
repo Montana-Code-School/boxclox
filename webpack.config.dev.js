@@ -5,7 +5,9 @@ module.exports = {
   devtool: 'eval',
   entry: {
     main: ['webpack-hot-middleware/client',
-    './client/oneBout']
+    './client/oneBout'],
+    test: ['webpack-hot-middleware/client',
+    './client/parentChildTest']
   },
     output: {
     path: path.join(__dirname, 'static'),

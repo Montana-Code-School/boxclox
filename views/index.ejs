@@ -6,11 +6,11 @@
   <link rel='stylesheet' href='/stylesheets/style.css'/>
 </head>
 <body>
-<header class="header">
-<% include ./header %>
-</header>  
-  <div>
-  	<div class="full-photo" style="background-image: url('./images/header.jpg')">
+  <header class="header">
+    <% include ./header %>
+  </header>  
+  <div >
+  	<div class="full-photo" style="background-image: url('./images/header.jpg')" id="header">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -27,12 +27,12 @@
      <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-        <div class="middle-section">
+        <div class="top-section">
           <p>  BoxClox is a minimalistic, easy-to-use tool for roller derby penalty box timing. BoxClox follows the current (8th revision) WFTDA ruleset for penalty timing, but allows one person to do the job of three, with ease.</p>
           <p>Though the <a href="https://wftda.com/rules/20141201">WFTDA rules</a> for sanctioned games still require at least two NSO’s in the penalty box, BoxClox is your go-to tool for penalty timing in scrimmages and practices. </p>
           <p>While derby players’ first love is derby, their second love is the team of NSO’s that make derby bouts and scrimmages happen! </p>
           <h2>
-            <a href="#buttons">
+            <a href="#how">
               <i class="fa fa-chevron-down fa-stack-1x"></i>
             </a>
           </h2>
@@ -40,67 +40,85 @@
       </div>
     </div>
   </div>
-  <div class="full-photo" style="background-image: url('./images/ref.jpg')" align="center" id="buttons">
-   <a href="#how"><button class="ghost-button-semi-transparent" > 
-    How it works</button></a>
-    <a href="/timer"><button class="ghost-button-semi-transparent"> Get Cloxing </button></a>
-    <a href="#who"><button class="ghost-button-semi-transparent" > Meet the Team </button></a>
-  </div>
-  <div class="container">
+  <div class="full-photo" style="background-image: url('./images/ref_pink.jpg')" id="how">
    <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-      <div class="middle-section"id="how">
-          <h2>
-            <a href="#buttons">
-              <i class="fa fa-chevron-up fa-stack-1x"></i>
-            </a>
-          </h2>
-          <br>
-        <p class="lead" > How to use:</p>
-        <p>First set the colors of each team using the pulldown menu. Timer colors will then match the team colors.</p>
-        <p>Each timer corresponds to a seat. Stars indicate jammer seats.
-          When the skater’s butt hits the seat, tap or click the corresponding timer, and it will start their 30 second countdown.</p>
-          <p>You will get a warning when there is 10 seconds remaining on their clock, at which point you give the command to stand (“Color, number, stand”). If they fail to stand, you can tap or click their timer to pause the countdown until they stand. Tap it again once they’re standing, and the countdown resumes.</p>
-          <p>You will get another warning when the clock hits 2 seconds remaining, at which point you can begin the give the command to leave the box (“Color, number, done”). You should be saying “done” as the timer hits zero.</p>
-          <p>Jammer timers have the same functionality, plus extra. If you have one jammer in the box, and the second jammer comes in, tapping their timer will result in the first jammer being released, and the second jammer’s timer will automatically populate with the amount of time that the first jammer served. If this happens a second time (the first jammer comes back), their timer will populate with a full thirty seconds, and the second jammer’s countdown will continue as it is (as per WFTDA rule 6.3.1).</p>
-          <p>If the jam is called off with skater(s) in the box, the large “JAM STOP” button will pause all timers currently running. When the next jam begins, the same button (that now says “JAM START”), will restart all timers that were running.</p>
-          <p>At halftime, when the team switches sides, click the “Halftime Swap” button, and team colors and any carryover penalties will switch sides. </p>
-          <h2>
+      <div class="middle-section">
+        <h3>
+          <a href="#header">
+            <i class="fa fa-chevron-up fa-stack-1x fa-inverse"></i>
+          </a>
+        </h3>
+        <br>
+        <h2> How to use:</h2>
+        <div class="row">
+          <div class="col-md-5 col-md-offset-1">
+            <p><i class="fa fa-3x fa-pull-left fa-caret-square-o-down"></i>
+              First set the colors of each team using the pulldown menu. Timer colors will then match the team colors.</p>
+              <p><i class="fa fa-3x fa-pull-left fa-clock-o"></i> Each timer corresponds to a seat. Stars indicate jammer seats. When the skater’s butt hits the seat, tap or click the corresponding timer, and it will start their 30 second countdown.</p>
+              <p><i class="fa fa-3x fa-pull-left fa-exclamation-circle"></i> You will get a warning when there is 10 seconds remaining on their clock, at which point you give the command to stand (“Color, number, stand”). If they fail to stand, you can tap or click their timer to pause the countdown until they stand. Tap it again once they’re standing, and the countdown resumes.</p>
+              <p><i class="fa fa-3x fa-pull-left fa-exclamation-circle"></i> You will get another warning when the clock hits 2 seconds remaining, at which point you can begin the give the command to leave the box (“Color, number, done”). You should be saying “done” as the timer hits zero.</p>
+            </div>
+            <div class="col-md-1"> </div>
+            <div class="col-md-5">
+              <p><i class="fa fa-3x fa-pull-left fa-repeat"></i> Jammer timers have the same functionality, plus extra. If you have one jammer in the box, and the second jammer comes in, tapping their timer will result in the first jammer being released, and the second jammer’s timer will automatically populate with the amount of time that the first jammer served. If this happens a second time (the first jammer comes back), their timer will populate with a full thirty seconds, and the second jammer’s countdown will continue as it is (as per WFTDA rule 6.3.1).</p>
+              <p><i class="fa fa-3x fa-pull-left fa-pause"></i> If the jam is called off with skater(s) in the box, the large “JAM STOP” button will pause all timers currently running. When the next jam begins, the same button (that now says “JAM START”), will restart all timers that were running.</p>
+              <p><i class="fa fa-3x fa-pull-left fa-repeat"></i> At halftime, when the team switches sides, click the “Halftime Swap” button, and team colors and any carryover penalties will switch sides. </p>
+            </div>
+          </div>
+          <h3>
             <a href="#who">
-              <i class="fa fa-chevron-down fa-stack-1x"></i>
+              <i class="fa fa-chevron-down fa-stack-1x fa-inverse"></i>
             </a>
-          </h2>
+          </h3>
         </div>
       </div>
     </div>
   </div>
-<!--   <div class="full-photo" >
- -->    <div class="container-fluid" style="background-color: rgba(240, 85, 160, 0.2);
-">
-     <div class="row">
+
+  <div class="container">
+    <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <h2>
+          <a href="#header">
+            <i class="fa fa-chevron-up fa-stack-1x"></i>
+          </a>
+        </h2>
+        <br>
+        <p class="lead" id="who">Meet the team:</p>
+        <p>As roller derby fans (and one skater), we were inspired to create this app when we thought about how we could create a useful roller-derby-related application that would both benefit the derby community, and be a learning experience for us as junior developers.
+          Our dream is to see BoxClox used by derby teams around the world, helping skaters, volunteers, and NSO’s.</p>
 
-        <div class="middle-section">
-          <h2>
-            <a href="#buttons">
-              <i class="fa fa-chevron-up fa-stack-1x"></i>
-            </a>
-          </h2>
-          <br>
-          <p class="lead" id="who">Meet the team:</p>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="well center">
+                <img class="round" src="http://junipie.io/img/juniper.jpg" alt="Juniper">
+                <p>I'm Juniper. I love to make great products, and I serve my fellow humans effectively and passionately.</p>
+                <p>I recently made a 180º shift in my career, and I'm studying to be a developer at Montana Code School. My general interests are the same -- I like projects, great teams, and solving the unsolvable -- but now there's code involved! As I graduate from my program in late December, I'm on the hunt for a development job.</p>
+                <p>Read my about my journey into coding <a href="http://junipie.io/blog.html">here</a>
+                </p>
 
-
-          <p>BoxClox is the brainchild of Beth, Juniper, and Suzie, from <a href="http://montanacodeschool.com/" target="_blank">Montana Code School.</a></p>
-          <p>As roller derby fans (and one skater), we were inspired to create this app when we thought about how we could create a useful roller-derby-related application that would both benefit the derby community, and be a learning experience for us as junior developers.
-            Our dream is to see BoxClox used by derby teams around the world, helping skaters, volunteers, and NSO’s.</p>
-            <p>Feel free to contact us with questions, comments, suggestions, and job offers.</p>
-            
+              </div></div>
+              <div class="col-md-6">
+                <div class="well center">
+                  <img class="round" src="https://scontent.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10491211_10203141582435229_3103633858634772851_n.jpg?oh=673f7ca921c3941c0dbc23c066293453&oe=571E7323" alt="Juniper">
+                  <p>I'm Suzie, I am an artist, designer and aspiring code nija.</p>
+                  <p>I started bashing my way around DOS terminals before I was 5, and have been in and out of the tech world ever since. Recently I have been diving into coding head on in hopes of finally mastering this world. </p>
+                  <p>When I am not designing or writing code. You can find me in the kitchen, perfecting new and interesting recipes and mixing the perfect cocktail to accompany any meal. </p>
+                  <p>Read my about my journey into coding <a href="http://reahard.rocks/blog">here</a>
+                  </p>
+                </div>
+              </div>
             </div>
+            <p>BoxClox is the brainchild of Beth, Juniper, and Suzie, from <a href="http://montanacodeschool.com/" target="_blank">Montana Code School.</a></p>
+            <p>Feel free to contact us with questions, comments, suggestions, and job offers.</p>
+
           </div>
         </div>
-        <script type="text/javascript" src="../static/main.js" charset="utf-8"></script>
-        <% include ./footer %>
-        <% include ./scripts %>
-      </body>
-      </html>
+      </div>
+      <script type="text/javascript" src="../static/main.js" charset="utf-8"></script>
+      <% include ./footer %>
+      <% include ./scripts %>
+    </body>
+    </html>

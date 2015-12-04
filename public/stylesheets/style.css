@@ -18,27 +18,48 @@ h2 {
 	font-size: 2em;
   padding: 10px;
 }
+.top-section {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
 .middle-section {
-	margin-top: 50px;
-	margin-bottom: 50px;
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+.middle-section h2 {
+  color: white;
+  font-size: 3em;
+  text-align: center;
+  text-transform: uppercase;
 }
 
-.middle-section h2 {
-  color: #EF569F;
+.middle-section h3 {
+  color: white;
   font-size: 1.5em;
   text-align: center;
+}
+.middle-section i {
+  color: white;
+  padding: 5px;
+}
+.middle-section p {
+  color: white;
 }
 .header
 {
   background: #EF569F;
-/*  height: 60px;
-*/  position: fixed;
+  position: fixed;
   color: #000;
   width: 100%;
   z-index:9999;
 
 }
-
+div.center{
+  text-align: center;
+}
+div.center p{
+  text-align: left;
+}
 .nav a{
   color: white;
 }
@@ -53,10 +74,12 @@ img.boxshadow {
 	width: 500px;
 	box-shadow:  10px 10px 5px #888888;
 }
-.img-circle {
+img.round {
   border-radius: 50%;
-  float:center;
-  margin: 0px 40px 0px 20px;
+  width: 140px;
+  height:140px;
+  overflow:hidden;
+  margin-bottom: 10px;
   padding: 0px;
 }
 .ghost-button-semi-transparent {
@@ -64,44 +87,49 @@ img.boxshadow {
   width: 380px;
   height:150px;
   padding: 30px 20px 30px 20px;
-  color: #EF569F;
-  border: 2px solid #EF569F;
-  margin: 200px 10px;
+  color: white;
+  border: 3px solid white;
+  margin: 40px 10px;
   font-family: "Anton", sans-serif;
   font-weight: 650px;
   font-size: 30px;
   text-align: center;
   text-transform: uppercase;
   outline: none;
-  background-color: rgba(167, 169, 172, 0.6);
+  background-color: rgba(240, 85, 160, 0.6);
   text-decoration: none;
   transition: background-color 0.2s ease-out,
-              border-color 0.2s ease-out;
+  border-color 0.2s ease-out;
 }
 .ghost-button-semi-transparent:hover,
 .ghost-button-semi-transparent:active {
-  background-color: #EF569F; /* fallback */
-  background-color: rgba(240, 85, 160, 0.2);
+  background-color: #EF569F;
+  color: rgba(255, 255, 255, 0.8); /* fallback */
+  background-color: rgba(255, 255, 255, 0.2);
   border-color: #EF569F; /* fallback */
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: rgba(240, 85, 160, 0.4);
   transition: background-color 0.3s ease-in,
-              border-color 0.3s ease-in;
+  border-color 0.3s ease-in;
 }
 .centerButtons {
-    margin: 0 auto;
-    float: left;
+  margin: 0 auto;
+  float: left;
 } 
 /*PARALLAX IMAGE STYLING*/
 .full-photo {	
 	background-attachment:fixed;
   background-color: rgba(240, 85, 160, 0.2);
-	background-position: top center;
+  background-position: top center;
   background-size: cover;
-	cursor: default;
-	padding: 160px 0 90px;
-	width: 100%;
-	float: left;
+  cursor: default;
+  padding: 20px;
+  width: 100%;
+  float: left;
 }
+.full-photo:first-child { 
+  padding: 160px 0 90px;
+}
+
 
 .full-photo h2 {
   color: white;
@@ -169,20 +197,20 @@ img.boxshadow {
   margin-bottom: 50px;
 }
 .intro-header .site-heading
- {
+{
   padding: 100px 0 50px;
   color: white;
 }
 @media only screen and (min-width: 768px) {
   .intro-header .site-heading
-{
+  {
     padding: 150px 0;
   }
 }
 .intro-header .site-heading{
   text-align: center;
-    max-width: 725px;
-margin: auto;
+  max-width: 725px;
+  margin: auto;
 }
 .intro-header .site-heading h1
 {

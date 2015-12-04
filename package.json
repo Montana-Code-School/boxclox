@@ -13,6 +13,7 @@
     "test": "npm run lint"
   },
   "dependencies": {
+    "addons": "^0.1.2",
     "blacklist": "^1.1.2",
     "body-parser": "~1.13.2",
     "cookie-parser": "~1.3.5",
@@ -21,9 +22,12 @@
     "ejs": "~2.3.3",
     "express": "~4.13.1",
     "history": "^1.13.1",
+    "linked": "^0.2.0",
     "material-ui": "^0.13.4",
+    "mixin": "^0.2.0",
     "morgan": "~1.6.1",
     "react": "^0.14.3",
+    "react-addons-linked-state-mixin": "^0.14.3",
     "react-color": "^1.2.1",
     "react-countdown-clock": "^1.0.3",
     "react-dom": "^0.14.3",
@@ -33,7 +37,8 @@
     "react-router": "^1.0.0",
     "react-tap-event-plugin": "^0.2.1",
     "reactify": "^1.1.1",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "state": "^0.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.0.14",
