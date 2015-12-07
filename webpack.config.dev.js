@@ -9,13 +9,13 @@ module.exports = {
     test: ['webpack-hot-middleware/client',
     './client/parentChildTest']
   },
-    output: {
-    path: path.join(__dirname, 'static'),
-    filename: '[name].js',
-    publicPath: '/static/',
-    plugins: [ new webpack.optimize.CommonsChunkPlugin("init.js") ]
+  output: {
+      path: path.join(__dirname, 'static'),
+      filename: '[name].js',
+      publicPath: '/static/',
+      plugins: [ new webpack.optimize.CommonsChunkPlugin('init.js') ]
 
-  },
+    },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
