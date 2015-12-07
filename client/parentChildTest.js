@@ -2,15 +2,6 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
 
-var ClockMixin = {
-  getDefaultProps: function() {
-    return {
-      time: 25 * 60 * 1000,
-      maxtime: 25 * 60 * 1000,
-    };
-  },
-};
-
 var MountMixin = {
   componentDidUpdate: function(prevProps, prevState) {
     if (this.state.isPlaying) {
@@ -53,14 +44,14 @@ var StateMixin = {
   },
 
   startTimer: function() {
-    var _this = this;
+    var that = this;
     return window.setInterval(function() {
-      if (_this.state.time > 0) {
-        _this.setState({
-          time: _this.state.time - 1000
+      if (that.state.time > 0) {
+        that.setState({
+          time: that.state.time - 1000
         });
       } else {
-        _this.timeOver();
+        that.timeOver();
       }
     }, 100);
   },
@@ -96,9 +87,9 @@ var StateMixin = {
 };
 
 var Clock = React.createClass({
-
-  mixins: [ClockMixin],
-
+  propTypes: {
+    time: React.PropTypes.string,
+  },
   getTime: function() {
     var now = new Date(this.props.time).valueOf().toString();
     if (now >= 100000) {
@@ -108,10 +99,6 @@ var Clock = React.createClass({
     } else if (now <= 9999) {
       return '0.' + now.slice(0, -3);
     }
-  },
-
-  getPercent: function() {
-    return 100 - ((this.props.maxtime - this.props.time) / this.props.maxtime * 100);
   },
 
   render: function() {

@@ -2,6 +2,10 @@ var React = require('react');
 var CircularProgress = require('material-ui').CircularProgress;
 
 var Clock = React.createClass({
+  propTypes: {
+    time: React.PropTypes.string,
+  },
+
   getDefaultProps: function() {
     return {
       time: 25 * 60 * 1000,
@@ -18,10 +22,6 @@ var Clock = React.createClass({
     } else if (now <= 9999) {
       return '0.' + now.slice(0, -3);
     }
-  },
-
-  getPercent: function() {
-    return 100 - ((this.props.maxtime - this.props.time) / this.props.maxtime * 100);
   },
 
   render: function() {
