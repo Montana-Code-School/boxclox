@@ -2,9 +2,6 @@ var React = require('react');
 var CircularProgress = require('material-ui').CircularProgress;
 
 var Clock = React.createClass({
-  propTypes: {
-    time: React.PropTypes.string,
-  },
 
   getDefaultProps: function() {
     return {

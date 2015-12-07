@@ -1,70 +1,54 @@
 var React = require('react');
-var ColorPicker = require('react-color');
+var ReactDOM = require('react-dom');
 
-var ReactCSS = require('reactcss');
 
-class ChooseColor extends ReactCSS.Component {
+var ColorPicker = React.createClass({
+  propTypes: {
+    value: React.PropTypes.string,
+    onChange: React.PropTypes.func,
+    valueLink: React.PropTypes.shape({ // TODO: what about React.PropTypes.link(...)?
+      value: React.PropTypes.string,
+      requestChange: React.PropTypes.func
+    })
+  },
 
-  constructor() {
-    super();
-    this.state = {
-      displayColorPicker: false,
-      color: '#F17013',
-    };
-    this.handleClick = this.handleClick.bind(this);
-    this.handleClose = this.handleClose.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  classes() {
+  getDefaultProps: function() {
     return {
-      'default': {
-        color: {
-          width: '500px',
-          height: '14px',
-          borderRadius: '2px',
-          background: this.state.color,
-        },
-        swatch: {
-          padding: '5px',
-          background: '#fff',
-          borderRadius: '1px',
-          boxShadow: '0 0 0 1px rgba(0,0,0,.1)',
-          display: 'inline-block',
-          cursor: 'pointer',
-        },
-      },
+      value: '',
+      onChange: function() {},
+      valueLink: null
     };
-  }
+  },
 
-  handleClick() {
-    this.setState({ displayColorPicker: !this.state.displayColorPicker });
-  }
+  componentDidMount: function() {
+    jQuery(this.getDOMNode()).colorPicker({
+      pickerDefault: this.getValueLink(this.props).value,
+      onColorChange: this.onColorChange
+    });
+  },
 
-  handleClose() {
-    this.setState({ displayColorPicker: false });
-  }
+  componentWillReceiveProps: function(nextProps) {
+    var currentValueLink = this.getValueLink(this.props);
+    var nextValueLink = this.getValueLink(nextProps);
+    if (currentValueLink.value !== nextValueLink.value) {
+      var node = jQuery(this.getDOMNode());
+      node.val(nextValueLink.value);
+      node.change();
+    }
+  },
 
-  handleChange(color) {
-    this.setState({ color: '#' + color.hex });
-  }
+  onColorChange: function(id, color) {
+    this.getValueLink(this.props).requestChange(color);
+  },
+  getValueLink: function(props) {
+    return props.valueLink || {
+      value: props.value,
+      requestChange: props.onChange
+    };
+  },
+  render: function() {
+    return <div />;
+  },
+});
 
-  render() {
-    return (
-      <div>
-        <div is="swatch" onClick={ this.handleClick }>
-          <div is="color" />
-        </div>
-        <ColorPicker
-          color={ this.state.color }
-          position="below"
-          display={ this.state.displayColorPicker }
-          onChange={ this.handleChange }
-          onClose={ this.handleClose }
-          type="compact" />
-      </div>
-    );
-  }
-}
-
-module.exports = ChooseColor;
+module.exports = ColorPicker;

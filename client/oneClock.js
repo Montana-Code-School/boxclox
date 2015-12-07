@@ -12,7 +12,6 @@ var OneClock = React.createClass({
   getInitialState: function() {
     return {
       isPlaying: false,
-      isBreak: false,
       time: this.getMaxTime(),
       maxtime: this.getMaxTime(),
     };
@@ -86,14 +85,9 @@ var OneClock = React.createClass({
   render: function() {
     return (
       <div>
-      <button className="button-float" onClick={this.handleStart}><Clock time={this.state.time} maxtime={this.state.maxtime} /></button>
-      <button className="button-float" onClick={this.handleStart}><i className={this.getIconName()} style={{fontSize: '8em'}}></i></button>
-      <span className="item">
-      <FloatingActionButton iconClassName="fa fa-refresh" iconStyle={{color: '#00bcd4'}} onClick={this.handleReset} />
-      </span>
-      <span className="item">
-      <FloatingActionButton iconClassName={this.getBreakName()} iconStyle={{color: '#00bcd4'}} onClick={this.handleBreak} />
-      </span>
+    <button className="clock-float" onClick={this.handleStart}><Clock time={this.state.time} maxtime={this.state.maxtime} /></button>
+    <button className="clock-float" onClick={this.handleStart}><i className={this.getIconName()} style={{fontSize: '6em'}}></i></button>
+    <button className="reset" onClick={this.handleReset}>Reset </button>
       </div>
       );
   }

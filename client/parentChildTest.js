@@ -113,7 +113,13 @@ var Clock = React.createClass({
 var OneClock = React.createClass({
 
   mixins: [MountMixin, StateMixin],
-
+  componentWillReceiveProps: function(nextProps) {
+    if (this.state.time !== 300000) {
+      if (this.props.pause === this.state.isPlaying) {
+        this.handleStart();
+      }
+    }
+  },
   render: function() {
     return (
     <div>
@@ -128,36 +134,50 @@ var OneClock = React.createClass({
 var OneTeam = React.createClass({
   mixins: [MountMixin, StateMixin],
 
+  getInitialState: function() {
+    return {pause: true};
+  },
+  getPauseInfo: function() {
+    if (this.state.pause) {
+      return 'fa fa-pause';
+    } else {
+      return 'fa fa-play';
+    }
+  },
+  handlePauseAll: function() {
+    this.setState({pause: !this.state.pause});
+  },
   render: function() {
+    var pause = this.state.pause;
     return (
       <div>
         <div className="col-md-4 col-md-offset-2">
         <h3> Home Team </h3>
       <div className="clock-button" style={{backgroundColor: 'rgba(168,0,0, .8)'}}>
-      <OneClock isRunning={this.state.isPlaying}/>
+      <OneClock pause={pause}/>
       </div>
         <div className="clock-button" style={{backgroundColor: 'rgba(168,0,0, .8)'}}>
-        <OneClock isRunning={this.state.isPlaying}/>
+        <OneClock pause={pause}/>
         </div>
         <div className="clock-button" style={{backgroundColor: 'rgba(168,0,0, .8)'}}>
-        <OneClock/>
+        <OneClock pause={pause}/>
         </div>
         </div>
         <div className="col-md-4">
         <h3> Visitors </h3>
         <div className="clock-button" style={{backgroundColor: 'rgba(0, 0, 179, .8)'}}>
-        <OneClock isRunning={this.state.isPlaying}/>
+        <OneClock pause={pause}/>
 
         </div>
         <div className="clock-button" style={{backgroundColor: 'rgba(0, 0, 179, .8)'}}>
-        <OneClock isRunning={this.state.isPlaying}/>
+        <OneClock pause={pause}/>
         </div>
         <div className="clock-button" style={{backgroundColor: 'rgba(0, 0, 179, .8)'}}>
-        <OneClock isRunning={this.state.isPlaying}/>
+        <OneClock pause={pause}/>
         </div>
         </div>
         <div className="col-md-8 col-md-offset-2 center">
-        <button className="reset-all" onClick={this.handleAll}>Pause</button>
+        <button className="reset-all" onClick={this.handlePauseAll}><i className={this.getPauseInfo()}></i> ALL</button>
         </div>
       </div>
     );
@@ -165,10 +185,3 @@ var OneTeam = React.createClass({
 });
 
 ReactDOM.render(<OneTeam/>, document.getElementById('test'));
-
-      // <span className="item">
-      // <FloatingActionButton iconClassName="fa fa-refresh" iconStyle={{color: '#00bcd4'}} onClick={this.handleReset} />
-      // </span>
-      // <span className="item">
-      // <FloatingActionButton iconClassName={this.getBreakName()} iconStyle={{color: '#00bcd4'}} onClick={this.handleBreak} />
-      // </span>
