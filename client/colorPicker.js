@@ -27,9 +27,9 @@ var ColorPicker = React.createClass({
     });
   },
 
-  componentWillReceiveProps: function(nextProps) {
+  componentWillReceiveProps: function(colorProps) {
     var currentValueLink = this.getValueLink(this.props);
-    var nextValueLink = this.getValueLink(nextProps);
+    var nextValueLink = this.getValueLink(colorProps);
     if (currentValueLink.value !== nextValueLink.value) {
       var node = jQuery(this.getDOMNode());
       node.val(nextValueLink.value);

@@ -2,74 +2,91 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var Router = require('react-router');
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
+var TextField = require('material-ui/lib/text-field');
 
 var ColorPicker = require('./colorPicker');
 var OneClock = require('./oneClock');
 
 var OneTeam = React.createClass({
   mixins: [LinkedStateMixin],
-
   getInitialState: function() {
-    return { color: '#FF0000' };
+    return {
+      color: '#FF0000',
+      color2: '#00FF00',
+      pause: true
+    };
   },
-
-  changeColor: function(color) {
-    this.setState({color: color});
+  componentWillReceiveProps: function(nextProps) {
+    if (this.state.time !== 300000) {
+      if (this.props.pause === this.state.isPlaying) {
+        this.handleStart();
+      }
+    }
   },
-  render: function() {
-    return (
-        <div>
-          <div>
-            <input type="text" valueLink={this.linkState('color')} />
-          </div>
-          <div className="clock-button" style={{backgroundColor: this.state.color}}>
-            <OneClock/>
-          </div>
-          <div className="clock-button" style={{backgroundColor: this.state.color}}>
-            <OneClock/>
-          </div>
-          <div className="clock-button" style={{backgroundColor: this.state.color}}>
-            <OneClock/>
-          </div>
-          <div>
-            <ColorPicker valueLink={this.linkState('color')} />
-          </div>
-        </div>
-        );
+  getPauseInfo: function() {
+    if (this.state.pause) {
+      return 'fa fa-pause';
+    } else {
+      return 'fa fa-play';
+    }
   },
-});
-
-var TwoTeam = React.createClass({
-  mixins: [LinkedStateMixin],
-
-  getInitialState: function() {
-    return { color: '#FF0000' };
+  handlePauseAll: function() {
+    this.setState({pause: !this.state.pause});
   },
   changeColor: function(color) {
     this.setState({color: color});
   },
+  changeColorText: function(evt) {
+    this.changeColor(evt.target.value);
+  },
+  changeColor2: function(color2) {
+    this.setState({color2: color2});
+  },
+  changeColorText2: function(evt) {
+    this.changeColor2(evt.target.value);
+  },
   render: function() {
+    var pause = this.state.pause;
     return (
         <div>
-          <div>
-            <input type="text" valueLink={this.linkState('color')} />
+          <div className="col-md-4 col-md-offset-2">
+            <h3> Home Team </h3>
+            <div>
+              <TextField hintText="Enter Home Team Color" floatingLabelText="Home Team Color:" onChange={this.changeColorText} />
+            </div>
+            <div className="clock-button" style={{backgroundColor: this.state.color, color: (this.state.color !== 'white' ? 'white' : 'black')}}>
+              <OneClock pause={pause}/>
+            </div>
+            <div className="clock-button" style={{backgroundColor: this.state.color}}>
+              <OneClock pause={pause}/>
+            </div>
+            <div className="clock-button" style={{backgroundColor: this.state.color}}>
+              <OneClock pause={pause}/>
+            </div>
+            </div>
+            <div className="col-md-4">
+             <h3> Visitors </h3>
+              <div>
+                <TextField hintText="Enter Visitor Team Color" floatingLabelText="Visitor Team Color:" onChange={this.changeColorText2} />
+              </div>
+              <div className="clock-button" style={{backgroundColor: this.state.color2}}>
+                <OneClock pause={pause}/>
+              </div>
+              <div className="clock-button" style={{backgroundColor: this.state.color2}}>
+                <OneClock pause={pause}/>
+              </div>
+            <div className="clock-button" style={{backgroundColor: this.state.color2}}>
+              <OneClock pause={pause}/>
+            </div>
+            </div>
+            <div className="col-md-8 col-md-offset-2 center">
+              <button className="reset-all" onClick={this.handlePauseAll}><i className={this.getPauseInfo()}></i> ALL</button>
+              <ColorPicker value={this.state.color} onChange={this.changeColor} />
+              <ColorPicker value={this.state.color2} onChange={this.changeColor2} />
+            </div>
           </div>
-          <div className="clock-button" style={{backgroundColor: this.state.color}}>
-            <OneClock/>
-          </div>
-          <div className="clock-button" style={{backgroundColor: this.state.color}}>
-            <OneClock/>
-          </div>
-          <div className="clock-button" style={{backgroundColor: this.state.color}}>
-            <OneClock/>
-          </div>
-          <div>
-            <ColorPicker valueLink={this.linkState('color')} />
-          </div>
-        </div>
         );
   },
 });
 
 module.exports = OneTeam;
-module.exports = TwoTeam;

@@ -20,7 +20,13 @@ var OneClock = React.createClass({
   componentDidMount: function() {
 
   },
-
+  componentWillReceiveProps: function(nextProps) {
+    if (this.state.time !== 300000) {
+      if (this.props.pause === this.state.isPlaying) {
+        this.handleStart();
+      }
+    }
+  },
   componentDidUpdate: function(prevProps, prevState) {
     if (this.state.isPlaying) {
       if (!this.timer) {

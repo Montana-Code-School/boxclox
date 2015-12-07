@@ -3,13 +3,6 @@ var CircularProgress = require('material-ui').CircularProgress;
 
 var Clock = React.createClass({
 
-  getDefaultProps: function() {
-    return {
-      time: 25 * 60 * 1000,
-      maxtime: 25 * 60 * 1000,
-    };
-  },
-
   getTime: function() {
     var now = new Date(this.props.time).valueOf().toString();
     if (now >= 100000) {
@@ -23,7 +16,7 @@ var Clock = React.createClass({
 
   render: function() {
     return (
-      <p className="clock-text">{this.getTime()}</p>
+      <p>{this.getTime()}</p>
       );
   }
 });

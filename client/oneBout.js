@@ -5,20 +5,24 @@ var OneTeam = require('./oneTeam');
 var TwoTeam = require('./oneTeam');
 
 var OneBout = React.createClass({
+  getInitialState: function() {
+    return {pause: true};
+  },
+  getPauseInfo: function() {
+    if (this.state.pause) {
+      return 'fa fa-pause';
+    } else {
+      return 'fa fa-play';
+    }
+  },
+  handlePauseAll: function() {
+    this.setState({pause: !this.state.pause});
+  },
   render: function() {
+    var pause = this.state.pause;
     return (
       <div>
-        <div className="col-md-4 col-md-offset-2">
-          <h3> Home Team </h3>
-          <OneTeam/>
-        </div>
-        <div className="col-md-4">
-          <h3> Visitors </h3>
-          <TwoTeam/>
-        </div>
-        <div className="col-md-8 col-md-offset-2 center">
-          <button className="reset-all" onClick={this.handleAll}>Pause</button>
-        </div>
+          <OneTeam />
       </div>
       );
   }

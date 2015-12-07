@@ -177,6 +177,14 @@ img.round {
   box-shadow: inset 7px 8px 80px rgba(0,0,0, .5);
   cursor: pointer;
   }
+.clock-button p {
+  font-size: 3em;
+  font-family: "Anton", sans-serif;
+  text-align: center;
+  margin:auto;
+  color: #FFF;
+  text-shadow: 4px 2px 7px rgba(0,0,0, .2);\
+}
 .clock-button:hover{
   opacity: .8;
 }
@@ -195,6 +203,7 @@ img.round {
   bottom: -100px;
   cursor: pointer;
   }
+
 .reset-all {
   width: 95%;
   border-radius: 10px;
@@ -222,14 +231,7 @@ img.round {
   color: rgba(255,255,255, .35);
   font-size: 1em;
 }
-.clock-button p {
-  font-size: 3em;
-  font-family: "Anton", sans-serif;
-  text-align: center;
-  margin:auto;
-  color: #FFF;
-  text-shadow: 4px 2px 7px rgba(0,0,0, .2);
-}
+
 .circular-button {
   position: absolute!important;
   top: 10px;
