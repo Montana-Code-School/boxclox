@@ -16,7 +16,6 @@ var users = require('./routes/users');
 
 // Webpack config to enable hot reloading
 if (process.env.NODE_ENV === 'production') {
-  console.log('Running in production mode');
 
   app.use('/static', express.static('static'));
 } else {
@@ -38,7 +37,6 @@ if (process.env.NODE_ENV === 'production') {
   var watcher = chokidar.watch('./server');
   watcher.on('ready', function() {
     watcher.on('all', function() {
-      console.log('Clearing /server/ module cache from server');
       Object.keys(require.cache).forEach(function(id) {
         if (/\/server\//.test(id)) {
           delete require.cache[id];

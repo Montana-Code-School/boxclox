@@ -1,9 +1,7 @@
 var React = require('react');
 var ColorPicker = require('react-color');
 
-var React = require('react');
 var ReactCSS = require('reactcss');
-var ColorPicker = require('react-color');
 
 class ChooseColor extends ReactCSS.Component {
 
@@ -67,6 +65,6 @@ class ChooseColor extends ReactCSS.Component {
       </div>
     );
   }
-};
+}
 
 module.exports = ChooseColor;

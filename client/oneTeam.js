@@ -9,26 +9,23 @@ var ChooseColor = require('./colorPicker');
 
 var OneTeam = React.createClass({
   render: function() {
-        return (
-            <div>
-              <div>
-                <ChooseColor/>
-              </div>
-              <div className='clock-button'  style={{backgroundColor: 'red'}}>
-                <OneClock/>
-              </div>
-              <div className='clock-button'  style={{backgroundColor: 'red'}}>
-              <OneClock/>
-              </div>
-              <div className='clock-button'  style={{backgroundColor: 'red'}}>              
-              <OneClock/>
-              </div>
-            </div>
-        );
-    }
+    return (
+        <div>
+          <div>
+            <ChooseColor/>
+          </div>
+          <div className="clock-button" style={{backgroundColor: 'red'}}>
+            <OneClock/>
+          </div>
+          <div className="clock-button" style={{backgroundColor: 'red'}}>
+            <OneClock/>
+          </div>
+          <div className="clock-button" style={{backgroundColor: 'red'}}>
+            <OneClock/>
+          </div>
+        </div>
+    );
+  }
 });
 
-
-// ReactDOM.render(<OneTeam/>, document.getElementById('timer-one'));
-// ReactDOM.render(<OneTeam/>, document.getElementById('timer-two'));
 module.exports = OneTeam;
