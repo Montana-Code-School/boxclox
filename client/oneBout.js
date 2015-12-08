@@ -47,6 +47,8 @@ var Bout = React.createClass({
   },
   render: function() {
     var pause = this.state.pause;
+    var jammerOne = 30 * 10000;
+    var jammerTwo = 30 * 10000;
     return (
         <div>
           <div className="col-md-4 col-md-offset-2">
@@ -55,7 +57,7 @@ var Bout = React.createClass({
               <TextField hintText="Enter Home Team Color" floatingLabelText="Home Team Color:" onChange={this.changeColorText} />
             </div>
             <div className="clock-button" style={{backgroundColor: this.state.color, color: (this.state.color !== 'white' ? 'white' : 'black')}}>
-              <OneClock pause={pause}/>
+              <OneClock pause={pause} jammerOne={jammerOne}/>
             </div>
             <div className="clock-button" style={{backgroundColor: this.state.color}}>
               <OneClock pause={pause}/>
@@ -70,7 +72,7 @@ var Bout = React.createClass({
                 <TextField hintText="Enter Visitor Team Color" floatingLabelText="Visitor Team Color:" onChange={this.changeColorText2} />
               </div>
               <div className="clock-button" style={{backgroundColor: this.state.color2}}>
-                <OneClock pause={pause}/>
+                <OneClock pause={pause} jammerTwo={jammerTwo}/>
               </div>
               <div className="clock-button" style={{backgroundColor: this.state.color2}}>
                 <OneClock pause={pause}/>

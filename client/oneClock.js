@@ -44,7 +44,13 @@ var OneClock = React.createClass({
   },
 
   getMaxTime: function() {
-    return 30 * 10000;
+    if (this.props.jammerOne) {
+      return this.props.jammerOne;
+    } else if (this.props.jammerTwo) {
+      return this.props.jammerTwo;
+    } else {
+      return 30 * 10000;
+    }
   },
 
   getIconName: function() {
@@ -70,7 +76,7 @@ var OneClock = React.createClass({
 
   handleStart: function() {
     this.setState({
-      isPlaying: !this.state.isPlaying
+      isPlaying: !this.state.isPlaying,
     });
   },
 
@@ -91,9 +97,9 @@ var OneClock = React.createClass({
   render: function() {
     return (
       <div>
-    <button className="clock-float" onClick={this.handleStart}><Clock time={this.state.time} maxtime={this.state.maxtime} /></button>
-    <button className="clock-float" onClick={this.handleStart}><i className={this.getIconName()} style={{fontSize: '6em'}}></i></button>
-    <button className="reset" onClick={this.handleReset}>Reset </button>
+        <button className="clock-float" onClick={this.handleStart}><Clock time={this.state.time} maxtime={this.state.maxtime} /></button>
+        <button className="clock-float" onClick={this.handleStart}><i className={this.getIconName()} style={{fontSize: '6em'}}></i></button>
+        <button className="reset" onClick={this.handleReset}>Reset </button>
       </div>
       );
   }
