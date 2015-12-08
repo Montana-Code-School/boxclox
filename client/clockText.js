@@ -1,5 +1,6 @@
 var React = require('react');
 var CircularProgress = require('material-ui').CircularProgress;
+var Blink = require('./blink');
 
 var Clock = React.createClass({
 
@@ -15,9 +16,19 @@ var Clock = React.createClass({
   },
 
   render: function() {
-    return (
+    if (this.getTime() < 13 && this.getTime() > 10) {
+      return (
+      <p><Blink>{this.getTime()}</Blink></p>
+      );
+    } else if (this.getTime() < 3) {
+      return (
+      <p><Blink>{this.getTime()}</Blink></p>
+      );
+    } else {
+      return (
       <p>{this.getTime()}</p>
       );
+    }
   }
 });
 

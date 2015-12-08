@@ -28,6 +28,7 @@
     "morgan": "~1.6.1",
     "react": "^0.14.3",
     "react-addons-linked-state-mixin": "^0.14.3",
+    "react-blink": "^1.0.3",
     "react-color": "^1.2.1",
     "react-countdown-clock": "^1.0.3",
     "react-dom": "^0.14.3",
