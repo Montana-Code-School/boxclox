@@ -5,9 +5,7 @@ module.exports = {
   devtool: 'source-map',
   entry: {
     main: [
-      './client/oneBout'],
-    test: ['webpack-hot-middleware/client',
-    './client/parentChildTest']
+      './client/oneBout']
   },
   output: {
       path: path.join(__dirname, 'static'),
