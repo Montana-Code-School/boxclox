@@ -16,11 +16,9 @@ var OneClock = React.createClass({
       maxtime: this.getMaxTime(),
     };
   },
-
   componentDidMount: function() {
-
   },
-  componentWillReceiveProps: function(nextProps) {
+  componentWillReceiveProps: function() {
     if (this.state.time !== 300000) {
       if (this.props.pause === this.state.isPlaying) {
         this.handleStart();
@@ -37,12 +35,10 @@ var OneClock = React.createClass({
       this.timer = null;
     }
   },
-
   componentWillUnmount: function() {
     window.clearInterval(this.timer);
     this.timer = null;
   },
-
   getMaxTime: function() {
     if (this.props.jammerOne) {
       return this.props.jammerOne;
@@ -52,7 +48,6 @@ var OneClock = React.createClass({
       return 30 * 10000;
     }
   },
-
   getIconName: function() {
     if (this.state.isPlaying) {
       return 'fa fa-5x fa-pause';
@@ -60,7 +55,6 @@ var OneClock = React.createClass({
       return 'fa fa-5x fa-play';
     }
   },
-
   startTimer: function() {
     var that = this;
     return window.setInterval(function() {
@@ -73,27 +67,28 @@ var OneClock = React.createClass({
       }
     }, 100);
   },
-
   handleStart: function() {
     this.setState({
       isPlaying: !this.state.isPlaying,
     });
+    if (this.props.jammerOne) {
+      this.props.switch(300000 - this.state.time, this.state.isPlaying, 'jOne');
+    } if (this.props.jammerTwo) {
+      this.props.switch(300000 - this.state.time, this.state.isPlaying, 'jTwo');
+    }
   },
-
   handleReset: function() {
     this.setState({
       time: this.state.maxtime,
       isPlaying: false
     });
   },
-
   timeOver: function() {
     this.setState({
       time: this.state.maxtime,
       isPlaying: false
     });
   },
-
   render: function() {
     return (
       <div>
