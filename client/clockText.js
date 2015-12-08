@@ -18,15 +18,15 @@ var Clock = React.createClass({
   render: function() {
     if (this.getTime() < 13 && this.getTime() > 10) {
       return (
-      <p><Blink>{this.getTime()}</Blink></p>
+      <p>Color Number Stand <br/><Blink> {this.getTime()}</Blink></p>
       );
     } else if (this.getTime() < 3) {
       return (
-      <p><Blink>{this.getTime()}</Blink></p>
+      <p>Color Number Done <br/><Blink>{this.getTime()}</Blink></p>
       );
     } else {
       return (
-      <p>{this.getTime()}</p>
+      <h2>{this.getTime()}</h2>
       );
     }
   }

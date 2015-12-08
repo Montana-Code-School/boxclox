@@ -14,7 +14,7 @@ var Bout = React.createClass({
       color: '#FF0000',
       color2: '#00FF00',
       pause: true,
-      jammerOne: 300000,
+      jammerOne: 140000,
       jammerTwo: 300000
     };
   },
@@ -27,12 +27,12 @@ var Bout = React.createClass({
   },
   handleJammerSwitch: function(time, isRunning, clockId) {
     console.log('switch!' + time + isRunning + clockId);
-    if (clockId === 'jOne') {
-      this.setState({jammerTwo: time});
-    }
-    if (clockId === 'jTwo') {
-      this.setState({jammerOne: time});
-    }
+    // if (clockId === 'jOne') {
+    //   this.setState({jammerTwo: time});
+    // }
+    // if (clockId === 'jTwo') {
+    //   this.setState({jammerOne: time});
+    // }
   },
   handlePauseAll: function() {
     this.setState({pause: !this.state.pause});

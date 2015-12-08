@@ -134,13 +134,6 @@ img.round {
   color: white;
   text-align: center;
 }
-/*.full-photo h3 {
-  text-transform: uppercase;
-  font-family: "Anton", sans-serif;
-  font-size: 3em;
-  text-align: center;
-  margin-top: 70px;
-}*/
 .full-photo2 { 
   background-attachment:fixed;
   background-color: rgba(240, 85, 160, 0.2);
@@ -177,10 +170,19 @@ img.round {
   box-shadow: inset 7px 8px 80px rgba(0,0,0, .5);
   cursor: pointer;
   }
-.clock-button p {
+.clock-button h2 {
   font-size: 3em;
   font-family: "Anton", sans-serif;
   text-align: center;
+  margin:auto;
+  color: #FFF;
+  text-shadow: 4px 2px 7px rgba(0,0,0, .2);\
+}
+.clock-button p {
+  font-size: 2em;
+  font-family: "Anton", sans-serif;
+  text-align: center;
+  line-height: 1.5;
   margin:auto;
   color: #FFF;
   text-shadow: 4px 2px 7px rgba(0,0,0, .2);\
