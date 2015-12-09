@@ -14,8 +14,6 @@ var Bout = React.createClass({
       color: '#FF0000',
       color2: '#00FF00',
       pause: true,
-      jammerOne: 140000,
-      jammerTwo: 300000
     };
   },
   getPauseInfo: function() {
@@ -25,14 +23,10 @@ var Bout = React.createClass({
       return 'fa fa-play';
     }
   },
-  handleJammerSwitch: function(time, isRunning, clockId) {
-    console.log('switch!' + time + isRunning + clockId);
-    // if (clockId === 'jOne') {
-    //   this.setState({jammerTwo: time});
-    // }
-    // if (clockId === 'jTwo') {
-    //   this.setState({jammerOne: time});
-    // }
+  toggleJammerClocks: function() {
+    this.setState({
+      jammerTime: this.state.jammerTime.reverse()
+    });
   },
   handlePauseAll: function() {
     this.setState({pause: !this.state.pause});
@@ -51,8 +45,6 @@ var Bout = React.createClass({
   },
   render: function() {
     var pause = this.state.pause;
-    var jammerOne = this.state.jammerOne;
-    var jammerTwo = this.state.jammerTwo;
     return (
         <div>
           <div className="col-md-4 col-md-offset-2">
@@ -60,8 +52,8 @@ var Bout = React.createClass({
             <div>
               <TextField hintText="Enter Home Team Color" floatingLabelText="Home Team Color:" onChange={this.changeColorText} />
             </div>
-            <div className="clock-button" style={{backgroundColor: this.state.color, color: (this.state.color !== 'white' ? 'white' : 'black')}}>
-              <OneClock pause={pause} jammerOne={jammerOne} switch={this.handleJammerSwitch}/>
+            <div className="clock-button" style={{backgroundColor: this.state.color}}>
+              <OneClock pause={pause}/>
             </div>
             <div className="clock-button" style={{backgroundColor: this.state.color}}>
               <OneClock pause={pause}/>
@@ -76,7 +68,7 @@ var Bout = React.createClass({
                 <TextField hintText="Enter Visitor Team Color" floatingLabelText="Visitor Team Color:" onChange={this.changeColorText2} />
               </div>
               <div className="clock-button" style={{backgroundColor: this.state.color2}}>
-                <OneClock pause={pause} jammerTwo={jammerTwo} switch={this.handleJammerSwitch}/>
+                <OneClock pause={pause} />
               </div>
               <div className="clock-button" style={{backgroundColor: this.state.color2}}>
                 <OneClock pause={pause}/>

@@ -12,8 +12,9 @@ var OneClock = React.createClass({
   getInitialState: function() {
     return {
       isPlaying: false,
-      time: this.getMaxTime(),
-      maxtime: this.getMaxTime(),
+      jammers: [30 * 10000, 30 * 10000],
+      time: 30 * 10000,
+      maxtime: 30 * 10000,
     };
   },
   componentDidMount: function() {
@@ -39,15 +40,6 @@ var OneClock = React.createClass({
     window.clearInterval(this.timer);
     this.timer = null;
   },
-  getMaxTime: function() {
-    if (this.props.jammerOne) {
-      return this.props.jammerOne;
-    } else if (this.props.jammerTwo) {
-      return this.props.jammerTwo;
-    } else {
-      return 30 * 10000;
-    }
-  },
   getIconName: function() {
     if (this.state.isPlaying) {
       return 'fa fa-5x fa-pause';
@@ -68,6 +60,7 @@ var OneClock = React.createClass({
     }, 100);
   },
   handleStart: function() {
+    var that = this;
     this.setState({
       isPlaying: !this.state.isPlaying,
     });
@@ -92,7 +85,7 @@ var OneClock = React.createClass({
   render: function() {
     return (
       <div>
-        <button className="clock-float" onClick={this.handleStart}><Clock time={this.state.time} maxtime={this.state.maxtime}/></button>
+        <button className="clock-float" onClick={this.handleStart}><Clock time={this.state.time} maxtime={this.state.maxtime} jammerTime={this.state.jammers}/></button>
         <button className="clock-float" onClick={this.handleStart}><i className={this.getIconName()} style={{fontSize: '6em'}}></i></button>
         <button className="reset" onClick={this.handleReset}>Reset </button>
       </div>

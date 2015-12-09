@@ -14,7 +14,6 @@ var Clock = React.createClass({
       return '0.' + now.slice(0, -3);
     }
   },
-
   render: function() {
     if (this.getTime() < 13 && this.getTime() > 10) {
       return (
