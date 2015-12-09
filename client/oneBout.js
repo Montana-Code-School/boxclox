@@ -4,6 +4,7 @@ var TextField = require('material-ui/lib/text-field');
 
 var ColorPicker = require('./colorPicker');
 var OneClock = require('./oneClock');
+var JammerClock = require('./jammerClock');
 
 var Bout = React.createClass({
   getInitialState: function() {
@@ -11,6 +12,7 @@ var Bout = React.createClass({
       color: '#FF0000',
       color2: '#00FF00',
       pause: true,
+      jammer: [false, false],
     };
   },
   getPauseInfo: function() {
@@ -22,7 +24,7 @@ var Bout = React.createClass({
   },
   toggleJammerClocks: function() {
     this.setState({
-      jammerTime: this.state.jammerTime.reverse()
+      jammer: this.state.jammer.reverse()
     });
   },
   handlePauseAll: function() {
@@ -42,6 +44,9 @@ var Bout = React.createClass({
   },
   render: function() {
     var pause = this.state.pause;
+    var jammer = this.state.jammer;
+    var jammerClocks = [<JammerClock pause={pause} jammer={jammer} />, <JammerClock pause={pause} jammer={jammer}/>];
+    window.jammerClocks = jammerClocks;
     return (
         <div>
           <div className="col-md-4 col-md-offset-2">
@@ -50,7 +55,7 @@ var Bout = React.createClass({
               <TextField hintText="Enter Home Team Color" floatingLabelText="Home Team Color:" onChange={this.changeColorText} />
             </div>
             <div className="clock-button" style={{backgroundColor: this.state.color}}>
-              <OneClock pause={pause}/>
+              {jammerClocks[0]}
             </div>
             <div className="clock-button" style={{backgroundColor: this.state.color}}>
               <OneClock pause={pause}/>
@@ -65,7 +70,7 @@ var Bout = React.createClass({
                 <TextField hintText="Enter Visitor Team Color" floatingLabelText="Visitor Team Color:" onChange={this.changeColorText2} />
               </div>
               <div className="clock-button" style={{backgroundColor: this.state.color2}}>
-                <OneClock pause={pause} />
+                {jammerClocks[1]}
               </div>
               <div className="clock-button" style={{backgroundColor: this.state.color2}}>
                 <OneClock pause={pause}/>
