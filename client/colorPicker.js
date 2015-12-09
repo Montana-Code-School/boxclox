@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-
+var jQuery = require('jquery');
 
 var ColorPicker = React.createClass({
   propTypes: {
@@ -21,7 +21,7 @@ var ColorPicker = React.createClass({
   },
 
   componentDidMount: function() {
-    jQuery(this.getDOMNode()).colorPicker({
+    jQuery(ReactDOM.findDOMNode(this)).colorPicker({
       pickerDefault: this.getValueLink(this.props).value,
       onColorChange: this.onColorChange
     });
@@ -31,7 +31,7 @@ var ColorPicker = React.createClass({
     var currentValueLink = this.getValueLink(this.props);
     var nextValueLink = this.getValueLink(colorProps);
     if (currentValueLink.value !== nextValueLink.value) {
-      var node = jQuery(this.getDOMNode());
+      var node = jQuery(ReactDOM.findDOMNode(this));
       node.val(nextValueLink.value);
       node.change();
     }

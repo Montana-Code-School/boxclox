@@ -1,6 +1,5 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Router = require('react-router');
 var RaisedButton = require('material-ui').RaisedButton;
 var FloatingActionButton = require('material-ui').FloatingActionButton;
 var Colors = require('material-ui/lib/styles/colors');
@@ -8,11 +7,14 @@ var Colors = require('material-ui/lib/styles/colors');
 var Clock = require('./clockText');
 
 var OneClock = React.createClass({
+  propTypes: {
+    pause: React.PropTypes.bool
+  },
 
   getInitialState: function() {
     return {
       isPlaying: false,
-      jammers: [30 * 10000, 30 * 10000],
+      jammer: [30 * 10000, 30 * 10000],
       time: 30 * 10000,
       maxtime: 30 * 10000,
     };
@@ -64,11 +66,6 @@ var OneClock = React.createClass({
     this.setState({
       isPlaying: !this.state.isPlaying,
     });
-    if (this.props.jammerOne) {
-      this.props.switch(300000 - this.state.time, this.state.isPlaying, 'jOne');
-    } if (this.props.jammerTwo) {
-      this.props.switch(300000 - this.state.time, this.state.isPlaying, 'jTwo');
-    }
   },
   handleReset: function() {
     this.setState({
@@ -76,6 +73,12 @@ var OneClock = React.createClass({
       isPlaying: false
     });
   },
+  switchJammerState: function() {
+    this.setState({
+      jammer: this.state.jammer.reverse()
+    });
+  },
+
   timeOver: function() {
     this.setState({
       time: this.state.maxtime,
@@ -85,7 +88,7 @@ var OneClock = React.createClass({
   render: function() {
     return (
       <div>
-        <button className="clock-float" onClick={this.handleStart}><Clock time={this.state.time} maxtime={this.state.maxtime} jammerTime={this.state.jammers}/></button>
+        <button className="clock-float" onClick={this.handleStart}><Clock time={this.state.time} maxtime={this.state.maxtime} /></button>
         <button className="clock-float" onClick={this.handleStart}><i className={this.getIconName()} style={{fontSize: '6em'}}></i></button>
         <button className="reset" onClick={this.handleReset}>Reset </button>
       </div>

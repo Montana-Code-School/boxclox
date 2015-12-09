@@ -1,14 +1,11 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Router = require('react-router');
-var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var TextField = require('material-ui/lib/text-field');
 
 var ColorPicker = require('./colorPicker');
 var OneClock = require('./oneClock');
 
 var Bout = React.createClass({
-  mixins: [LinkedStateMixin],
   getInitialState: function() {
     return {
       color: '#FF0000',
