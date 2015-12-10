@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/timer', function(req, res, next) {
-  res.render('./timer.ejs', { title: 'BoxClox -- timer title here'});
+  res.render('./timer.ejs', { title: 'BoxClox -- A roller derby penalty box clocking app'});
 });
 
 module.exports = router;
