@@ -17,9 +17,9 @@ var Bout = React.createClass({
   },
   getPauseInfo: function() {
     if (this.state.pause) {
-      return 'fa fa-pause';
+      return 'JAM STOP';
     } else {
-      return 'fa fa-play';
+      return 'JAM START';
     }
   },
   toggleJammerClocks: function() {
@@ -49,7 +49,7 @@ var Bout = React.createClass({
     window.jammerClocks = jammerClocks;
     return (
         <div>
-          <div className="col-md-4 col-md-offset-2">
+          <div className="col-md-4 col-md-offset-2 col-xs-6">
             <h3> Home Team </h3>
             <div>
               <TextField hintText="Enter Home Team Color" floatingLabelText="Home Team Color:" onChange={this.changeColorText} />
@@ -64,7 +64,7 @@ var Bout = React.createClass({
               <OneClock pause={pause}/>
             </div>
             </div>
-            <div className="col-md-4">
+            <div className="col-md-4 col-xs-6">
              <h3> Visitors </h3>
               <div>
                 <TextField hintText="Enter Visitor Team Color" floatingLabelText="Visitor Team Color:" onChange={this.changeColorText2} />
@@ -80,7 +80,7 @@ var Bout = React.createClass({
             </div>
             </div>
             <div className="col-md-8 col-md-offset-2 center">
-              <button className="reset-all" onClick={this.handlePauseAll}><i className={this.getPauseInfo()}></i> ALL</button>
+              <button className="reset-all" onClick={this.handlePauseAll}>{this.getPauseInfo()}</button>
               <ColorPicker value={this.state.color} onChange={this.changeColor} />
               <ColorPicker value={this.state.color2} onChange={this.changeColor2} />
             </div>
