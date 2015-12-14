@@ -90,7 +90,7 @@ var JammerClock = React.createClass({
     return (
       <div>
         <button className="clock-float" onClick={this.handleStart}><Clock time={this.state.time} maxtime={this.state.maxtime} /></button>
-        <button className="clock-float" onClick={this.handleStart}><i className={this.getIconName()} style={{fontSize: '6em'}}></i></button>
+        <button className="clock-float" onClick={this.handleStart}><i className={this.getIconName()}></i></button>
         <button className="reset" onClick={this.handleReset}>Reset </button>
       </div>
       );
