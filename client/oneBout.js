@@ -52,7 +52,7 @@ var Bout = React.createClass({
           <div className="col-xs-6 col-sm-4 col-sm-offset-2 ">
             <h3> Home Team </h3>
             <div className="form-area">
-              <TextField hintText="Enter Color" floatingLabelText="Home Team Color:" style={{width: '95%'}} onChange={this.changeColorText} />
+              <TextField hintText="Enter Color" floatingLabelText="Home Color:" style={{width: '95%'}} onChange={this.changeColorText} />
             </div>
             <div className="clock-button" style={{backgroundColor: this.state.color}}>
               {jammerClocks[0]}
@@ -67,7 +67,7 @@ var Bout = React.createClass({
             <div className="col-xs-6 col-sm-4">
              <h3> Visitors </h3>
               <div className="form-area">
-                <TextField hintText="Enter Color" floatingLabelText="Visitor Team Color:" style={{width: '95%'}} onChange={this.changeColorText2} />
+                <TextField hintText="Enter Color" floatingLabelText="Visitor Color:" style={{width: '95%'}} onChange={this.changeColorText2} />
               </div>
               <div className="clock-button" style={{backgroundColor: this.state.color2}}>
                 {jammerClocks[1]}
