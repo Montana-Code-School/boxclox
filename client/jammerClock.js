@@ -9,26 +9,43 @@ var Clock = require('./clockText');
 var JammerClock = React.createClass({
   propTypes: {
     pause: React.PropTypes.bool,
-    jammer: React.PropTypes.array
+    jammerOne: React.PropTypes.number,
+    jammerTwo: React.PropTypes.number
   },
 
   getInitialState: function() {
     return {
       isPlaying: false,
-      jammer: [30 * 10000, 30 * 10000],
-      time: 30 * 10000,
-      maxtime: 30 * 10000,
+      time: this.getMaxTime(),
+      maxtime: this.getMaxTime(),
     };
+  },
+  getMaxTime: function() {
+    if (this.props.jammerOne) {
+      return this.props.jammerOne;
+    } else if (this.props.jammerTwo) {
+      return this.props.jammerTwo;
+    } else {
+      return 30 * 10000;
+    }
   },
   componentDidMount: function() {
   },
-  componentWillReceiveProps: function() {
+  componentWillReceiveProps: function(nextProps) {
     if (this.state.time !== 300000) {
       if (this.props.pause === this.state.isPlaying) {
         this.handleStart();
       }
     }
+    if(this.props.jammerOne != nextProps.jammerOne){
+     this.getMaxTime();
+   }
   },
+  componentWillUpdate: function(nextProps) {
+    console.log(this.props.jammerOne);
+    console.log(this.props.jammerTwo);
+  },
+
   componentDidUpdate: function(prevProps, prevState) {
     if (this.state.isPlaying) {
       if (!this.timer) {
@@ -63,11 +80,16 @@ var JammerClock = React.createClass({
     }, 100);
   },
   handleStart: function() {
-    var that = this;
     this.setState({
       isPlaying: !this.state.isPlaying,
     });
+    if (this.props.jammerOne) {
+      this.props.switch(300000 - this.state.time, this.state.isPlaying, 'jOne');
+    } if (this.props.jammerTwo) {
+      this.props.switch(300000 - this.state.time, this.state.isPlaying, 'jTwo');
+    }
   },
+
   handleReset: function() {
     this.setState({
       time: this.state.maxtime,
@@ -75,9 +97,8 @@ var JammerClock = React.createClass({
     });
   },
   switchJammerState: function() {
-    this.setState({
-      jammer: this.state.jammer.reverse()
-    });
+    var that = this; 
+    that.componentWillUpdate();
   },
 
   timeOver: function() {
@@ -91,6 +112,7 @@ var JammerClock = React.createClass({
       <div>
         <button className="clock-float" onClick={this.handleStart}><Clock time={this.state.time} maxtime={this.state.maxtime} /></button>
         <button className="clock-float" onClick={this.handleStart}><i className={this.getIconName()}></i></button>
+        <button className="reset" onClick={this.switchJammerState}>Switch Jammers </button>
         <button className="reset" onClick={this.handleReset}>Reset </button>
       </div>
       );
