@@ -1,5 +1,4 @@
 var React = require('react');
-var Blink = require('./blink');
 
 var Clock = React.createClass({
   propTypes: {
@@ -18,19 +17,19 @@ var Clock = React.createClass({
   render: function() {
     if (this.getTime() < 13 && this.getTime() > 11.2) {
       return (
-      <p>Color Number Stand <br/><Blink>{this.getTime()}</Blink></p>
+      <p>Color Number Stand <br/>{this.getTime()}</p>
       );
     } else if (this.getTime() <= 11.2 && this.getTime() > 10) {
       return (
-      <p>Color Number Stand <br/><Blink><audio autoPlay><source src="./sounds/stand.mp3"/></audio>{this.getTime()}</Blink></p>
+      <p>Color Number Stand <br/><audio autoPlay><source src="./sounds/stand.mp3"/></audio>{this.getTime()}</p>
       );
     } else if (this.getTime() < 3 && this.getTime() > 1) {
       return (
-      <p>Color Number Done <br/><Blink>{this.getTime()}</Blink></p>
+      <p>Color Number Done <br/>{this.getTime()}</p>
       );
     } else if (this.getTime() <= 1) {
       return (
-      <p>Color Number Done <br/><Blink><audio autoPlay><source src="./sounds/done.mp3"/></audio>{this.getTime()}</Blink></p>
+      <p>Color Number Done <br/><audio autoPlay><source src="./sounds/done.mp3"/></audio>{this.getTime()}</p>
       );
     } else {
       return (
