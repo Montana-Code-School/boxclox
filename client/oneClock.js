@@ -36,6 +36,13 @@ var OneClock = React.createClass({
     window.clearInterval(this.timer);
     this.timer = null;
   },
+  getIconName: function() {
+    if (this.props.started) {
+      return 'fa fa-5x fa-pause';
+    } else {
+      return 'fa fa-5x fa-play';
+    }
+  },
   initTimerInterval: function(props) {
     var that = this;
     if (props.started && !this.timer) {
@@ -43,13 +50,6 @@ var OneClock = React.createClass({
     } else if (!props.started && this.timer || !props.started && props.ticks === 0) {
       window.clearInterval(this.timer);
       this.timer = null;
-    }
-  },
-  getIconName: function() {
-    if (this.props.started) {
-      return 'fa fa-5x fa-pause';
-    } else {
-      return 'fa fa-5x fa-play';
     }
   },
   render: function() {
