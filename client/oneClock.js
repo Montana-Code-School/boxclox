@@ -45,11 +45,18 @@ var OneClock = React.createClass({
       this.timer = null;
     }
   },
+  getIconName: function() {
+    if (this.props.started) {
+      return 'fa fa-5x fa-pause';
+    } else {
+      return 'fa fa-5x fa-play';
+    }
+  },
   render: function() {
     return (
       <div>
         <button className="clock-float" onClick={this.props.handleClick} ><Clock time={this.props.ticks} /></button>
-        <button className="clock-float" onClick={this.props.handleClick}><i className="fa fa-5x fa-play"></i></button>
+        <button className="clock-float" onClick={this.props.handleClick}><i className={this.getIconName()}></i></button>
         <button className="reset" onClick={this.props.handleReset}> Reset </button>
       </div>
       );

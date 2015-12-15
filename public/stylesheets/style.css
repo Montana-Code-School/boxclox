@@ -156,6 +156,7 @@ img.round {
 .form-area {
   width: 90%;
   margin: auto;
+  margin-top: -20px;
   }
 
 .clock-button {
@@ -193,7 +194,7 @@ img.round {
 .reset {
   width: 100%;
   /* height: 30px; */
-  border-radius: 10px;
+  border-radius: 0px;
   color: white;
   /* margin: 0 auto 10px; */
   text-align: center;
@@ -207,7 +208,7 @@ img.round {
   }
 .reset-all {
   width: 97%;
-  border-radius: 10px;
+  border-radius: 0px;
   color: white;
   text-align: center;
   font-size: 1.2em;
@@ -281,7 +282,7 @@ img.round {
   }
   .reset {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 0px;
     color: white;
     text-align: center;
     background-color: #e6e6e6;

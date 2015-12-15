@@ -8,8 +8,8 @@ var OneClock = require('./oneClock');
 var Bout = React.createClass({
   getInitialState: function() {
     return {
-      color: '#FF0000',
-      color2: '#00FF00',
+      color: '#FF1493',
+      color2: '#000',
       pause: false,
       clockOne: 300000,
       clockTwo: 300000,
