@@ -8,89 +8,54 @@ var Clock = require('./clockText');
 
 var OneClock = React.createClass({
   propTypes: {
-    pause: React.PropTypes.bool
+    pause: React.PropTypes.bool,
+    started: React.PropTypes.bool
   },
 
   getInitialState: function() {
     return {
       isPlaying: false,
-      jammer: [30 * 10000, 30 * 10000],
       time: 30 * 10000,
       maxtime: 30 * 10000,
     };
   },
-  componentDidMount: function() {
+  initTimerInterval: function(props){
+    var that = this;
+    if(props.started && !this.timer){
+      this.timer = setInterval(props.tickCallback, props.callbackInterval || 1000);
+      console.log(props.started)
+    } else if (!props.started && this.timer || !props.started && props.ticks === 0) {
+      window.clearInterval(this.timer);
+      this.timer = null;
+      console.log(props.started)
+    }
   },
-  componentWillReceiveProps: function() {
+  componentDidMount: function() {
+    this.initTimerInterval(this.props)
+  },
+  componentWillReceiveProps: function(newProps) {
     if (this.state.time !== 300000) {
       if (this.props.pause === this.state.isPlaying) {
         this.handleStart();
       }
-    }
-  },
-  componentDidUpdate: function(prevProps, prevState) {
-    if (this.state.isPlaying) {
-      if (!this.timer) {
-        this.timer = this.startTimer();
-      }
-    } else {
-      window.clearInterval(this.timer);
-      this.timer = null;
-    }
+    };
+    this.initTimerInterval(newProps)
   },
   componentWillUnmount: function() {
     window.clearInterval(this.timer);
     this.timer = null;
   },
-  getIconName: function() {
-    if (this.state.isPlaying) {
-      return 'fa fa-5x fa-pause';
-    } else {
-      return 'fa fa-5x fa-play';
-    }
-  },
-  startTimer: function() {
-    var that = this;
-    return window.setInterval(function() {
-      if (that.state.time > 0) {
-        that.setState({
-          time: that.state.time - 1000
-        });
-      } else {
-        that.timeOver();
-      }
-    }, 100);
-  },
-  handleStart: function() {
-    var that = this;
-    this.setState({
-      isPlaying: !this.state.isPlaying,
-    });
-  },
-  handleReset: function() {
-    this.setState({
-      time: this.state.maxtime,
-      isPlaying: false
-    });
-  },
-  switchJammerState: function() {
-    this.setState({
-      jammer: this.state.jammer.reverse()
-    });
-  },
-
-  timeOver: function() {
-    this.setState({
-      time: this.state.maxtime,
-      isPlaying: false
-    });
-  },
   render: function() {
+    if (this.props.ticks > 0) {
+      var time = this.props.ticks;
+    } else {
+      var time = 0;
+    }
     return (
       <div>
-        <button className="clock-float" onClick={this.handleStart} ><Clock time={this.state.time} maxtime={this.state.maxtime} /></button>
-        <button className="clock-float" onClick={this.handleStart}><i className={this.getIconName()}></i></button>
-        <button className="reset" onClick={this.handleReset}>Reset </button>
+        <button className="clock-float" onClick={this.props.handleClick} ><Clock time={time} /></button>
+        <button className="clock-float" onClick={this.props.handleClick}><i className='fa fa-5x fa-play'></i></button>
+        <button className="reset" onClick={this.props.handleReset}> Reset </button>
       </div>
       );
   }
