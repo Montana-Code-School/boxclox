@@ -161,7 +161,7 @@ img.round {
 .clock-button {
   width: 90%;
   height: 100px;
-  border-radius: 10px;
+  border-radius: 0px;
   margin: auto;
   margin-bottom: 50px;
   background-color: #000;
@@ -206,15 +206,19 @@ img.round {
   cursor: pointer;
   }
 .reset-all {
-  width: 95%;
+  width: 97%;
   border-radius: 10px;
   color: white;
   text-align: center;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  height: 50px;
   margin: auto;
-  background-color: #e6e6e6;
-  -moz-box-shadow: inset 0 0 20px #000000;
-  -webkit-box-shadow: inset 0 0 20px #000000;
-  box-shadow: inset 7px 8px 80px rgba(0,0,0, .5);
+  margin-bottom: 20px;
+  background-color: lightgrey;
+  -moz-box-shadow: inset 0 0 20px lightgrey;
+  -webkit-box-shadow: inset 0 0 20px lightgrey;
+  box-shadow: inset 7px 8px 70px rgba(0,0,0, .2);
   cursor: pointer;
   }
 .clock-float {
@@ -245,7 +249,7 @@ img.round {
   .clock-button {
     width: 100%;
     height: 50px;
-    border-radius: 10px;
+    border-radius: 0px;
     margin: auto;
     margin-bottom: 50px;
     background-color: #000;
@@ -289,19 +293,10 @@ img.round {
     cursor: pointer;
     }
   .reset-all {
-    width: 95%;
-    border-radius: 10px;
-    color: white;
-    text-align: center;
-    margin: auto;
-    background-color: #e6e6e6;
-    -moz-box-shadow: inset 0 0 20px #000000;
-    -webkit-box-shadow: inset 0 0 20px #000000;
-    box-shadow: inset 7px 8px 80px rgba(0,0,0, .5);
-    cursor: pointer;
+    width: 100%;
+    height: 35px;
     }
   .clock-float {
-    width: 90%;
     height: 50px;
     color: rgba(0,0,0,0);
     border-radius: 5%;

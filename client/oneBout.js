@@ -82,10 +82,9 @@ var Bout = React.createClass({
     var pause = this.state.pause;
     return (
         <div>
-
+          <div className="row">
           <div className="col-xs-6 col-sm-4 col-sm-offset-2 ">
             <h3> Home Team </h3>
-            <button onClick={this.switchJammers}> switch jammers </button>
             <div className="form-area">
               <TextField hintText="Enter Color" floatingLabelText="Home Color:" style={{width: '95%'}} onChange={this.changeColorText} />
             </div>
@@ -93,16 +92,6 @@ var Bout = React.createClass({
                 <OneClock handleReset={this.handleResetClick.bind(this, 'clockOne')} handleClick={this.handleClockClick.bind(this, 'clockOne')}
                 started={this.state.clockOneStarted} maxTicks={30000} ticks={this.state.clockOne} callbackInterval={100}
                 tickCallback={this.clockTickCallback.bind(this, 'clockOne')} />
-            </div>
-            <div className="clock-button" style={{backgroundColor: this.state.color}}>
-                <OneClock handleReset={this.handleResetClick.bind(this, 'clockTwo')} handleClick={this.handleClockClick.bind(this, 'clockTwo')}
-                started={this.state.clockTwoStarted} maxTicks={30000} ticks={this.state.clockTwo} callbackInterval={100}
-                tickCallback={this.clockTickCallback.bind(this, 'clockTwo')} />
-            </div>
-            <div className="clock-button" style={{backgroundColor: this.state.color}}>
-                <OneClock handleReset={this.handleResetClick.bind(this, 'clockThree')} handleClick={this.handleClockClick.bind(this, 'clockThree')}
-                started={this.state.clockThreeStarted} maxTicks={30000} ticks={this.state.clockThree} callbackInterval={100}
-                tickCallback={this.clockTickCallback.bind(this, 'clockThree')} />
             </div>
             </div>
             <div className="col-xs-6 col-sm-4">
@@ -115,6 +104,25 @@ var Bout = React.createClass({
                 started={this.state.clockFourStarted} maxTicks={30000} ticks={this.state.clockFour} callbackInterval={100}
                 tickCallback={this.clockTickCallback.bind(this, 'clockFour')} />
               </div>
+              </div>
+              </div>
+              <div className="col-xs-12 col-sm-8 col-sm-offset-2 center">
+              <button className="reset-all"onClick={this.switchJammers}> switch jammers </button>
+              </div>
+              <div className="row">
+            <div className="col-xs-6 col-sm-4 col-sm-offset-2 ">
+            <div className="clock-button" style={{backgroundColor: this.state.color}}>
+                <OneClock handleReset={this.handleResetClick.bind(this, 'clockTwo')} handleClick={this.handleClockClick.bind(this, 'clockTwo')}
+                started={this.state.clockTwoStarted} maxTicks={30000} ticks={this.state.clockTwo} callbackInterval={100}
+                tickCallback={this.clockTickCallback.bind(this, 'clockTwo')} />
+            </div>
+            <div className="clock-button" style={{backgroundColor: this.state.color}}>
+                <OneClock handleReset={this.handleResetClick.bind(this, 'clockThree')} handleClick={this.handleClockClick.bind(this, 'clockThree')}
+                started={this.state.clockThreeStarted} maxTicks={30000} ticks={this.state.clockThree} callbackInterval={100}
+                tickCallback={this.clockTickCallback.bind(this, 'clockThree')} />
+            </div>
+            </div>
+            <div className="col-xs-6 col-sm-4">
               <div className="clock-button" style={{backgroundColor: this.state.color2}}>
                 <OneClock handleReset={this.handleResetClick.bind(this, 'clockFive')} handleClick={this.handleClockClick.bind(this, 'clockFive')}
                 started={this.state.clockFiveStarted} maxTicks={30000} ticks={this.state.clockFive} callbackInterval={100}
@@ -124,6 +132,7 @@ var Bout = React.createClass({
                 <OneClock handleReset={this.handleResetClick.bind(this, 'clockSix')} handleClick={this.handleClockClick.bind(this, 'clockSix')}
                 started={this.state.clockSixStarted} maxTicks={30000} ticks={this.state.clockSix} callbackInterval={100}
                 tickCallback={this.clockTickCallback.bind(this, 'clockSix')} />
+            </div>
             </div>
             </div>
             <div className="col-xs-12 col-sm-8 col-sm-offset-2 center">
