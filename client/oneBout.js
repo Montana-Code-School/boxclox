@@ -71,10 +71,19 @@ var Bout = React.createClass({
     var newFour;
     newOne = 300000 - this.state.clockFour;
     newFour = 300000 - this.state.clockOne;
-    if (this.state.clockOne !== 300000 || this.state.clockFour !== 300000) {
+    if (this.state.clockOne !== 300000) {
+      this.setState({
+        clockFour: newFour,
+        clockOne: 300000,
+        clockOneStarted: false,
+        clockFourStarted: true,
+      });
+    } else if (this.state.clockFour !== 300000){
       this.setState({
         clockOne: newOne,
-        clockFour: newFour
+        clockFour: 300000, 
+        clockFourStarted: false,
+        clockOneStarted: true,
       });
     }
   },
